@@ -28,6 +28,12 @@
             android:name=".ApplicantSignIn"
             android:exported="false" />
         <activity
+            android:name=".EmployerSignIn"
+            android:exported="false" />
+        <activity
+            android:name=".EmployerSignUp"
+            android:exported="false" />
+        <activity
             android:name=".Splashscreen"
             android:exported="true"
             android:label="@string/title_activity_splashscreen"

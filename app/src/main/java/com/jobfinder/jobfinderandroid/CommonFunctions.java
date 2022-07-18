@@ -16,22 +16,18 @@ public class CommonFunctions {
             case R.id.action_home:
                 if(!src.equals(item.getTitle()))
                     i = new Intent(con, ApplicantDashboard.class);
-                Toast.makeText(con, "Function To Follow: Dashboard", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.action_find_job:
                 if(!src.equals(item.getTitle()))
-                    i = new Intent(con, ApplicantDashboard.class);
-                Toast.makeText(con, "Function To Follow: FindAJob", Toast.LENGTH_SHORT).show();
+                    i = new Intent(con, ApplicantJobList.class);
                 break;
             case R.id.action_profile:
                 if(!src.equals(item.getTitle()))
-                    i = new Intent(con, ApplicantDashboard.class);
-                Toast.makeText(con, "Function To Follow: Profile", Toast.LENGTH_SHORT).show();
+                    i = new Intent(con, ApplicantProfile.class);
                 break;
             case R.id.action_settings:
                 if(!src.equals(item.getTitle()))
-                    i = new Intent(con, ApplicantDashboard.class);
-                Toast.makeText(con, "Function To Follow: Settings", Toast.LENGTH_SHORT).show();
+                    i = new Intent(con, ApplicantSettings.class);
                 break;
             case R.id.action_logout:
                 if(!src.equals(item.getTitle()))

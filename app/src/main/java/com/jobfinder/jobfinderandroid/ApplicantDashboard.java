@@ -42,7 +42,7 @@ public class ApplicantDashboard extends AppCompatActivity implements NavigationV
 
     @Override
     public boolean onNavigationItemSelected(@NonNull @NotNull MenuItem item) {
-        if (CommonFunctions.menu(this, item, "Dashboard"))
+        if (CommonFunctions.menu(this, item, "Home"))
             finish();
         return true;
     }
