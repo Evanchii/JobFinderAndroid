@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "244006904642",
+    "firebase_url": "https://jobfinder-443a4-default-rtdb.firebaseio.com",
+    "project_id": "jobfinder-443a4",
+    "storage_bucket": "jobfinder-443a4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:244006904642:android:88a9e8b4637af5b49e5edb",
+        "android_client_info": {
+          "package_name": "com.example.job_findr"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "244006904642-pcsrk139t8rv3j293kpe4q8ci1fo99pa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0JLKbaVTSFE9x51Lf63EyvFo3UXPvMV0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "244006904642-pcsrk139t8rv3j293kpe4q8ci1fo99pa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:244006904642:android:c6e738b1b82075dd9e5edb",
+        "android_client_info": {
+          "package_name": "com.jobfinder.jobfinderandroid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "244006904642-pcsrk139t8rv3j293kpe4q8ci1fo99pa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0JLKbaVTSFE9x51Lf63EyvFo3UXPvMV0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "244006904642-pcsrk139t8rv3j293kpe4q8ci1fo99pa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
