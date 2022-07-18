@@ -25,7 +25,7 @@ public class Splashscreen extends AppCompatActivity {
 
         Handler handler = new Handler();
 //        Intent intent = (mAuth.getCurrentUser() != null) ? new Intent(Splashscreen.this, Dashboard.class) : new Intent(Splashscreen.this, Login.class);
-        Intent intent = new Intent(Splashscreen.this, ApplicantSignUp.class);
+        Intent intent = new Intent(Splashscreen.this, ApplicantDashboard.class);
         handler.postDelayed(() -> {
             startActivity(intent);
             finish();

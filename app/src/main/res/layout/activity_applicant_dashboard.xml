@@ -15,169 +15,627 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:padding="10dp"
                 android:text="Welcome %user%"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
 
-            <androidx.cardview.widget.CardView
+            <ImageView
+                android:id="@+id/imageView3"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
+                app:srcCompat="@drawable/banner" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="Browse Top Categories"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:layout_weight="1"
+                        android:padding="2dp"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="3dp"
+                        app:cardPreventCornerOverlap="true"
+                        app:cardUseCompatPadding="true"
+                        app:contentPadding="12dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <TextView
+                                android:id="@+id/appDash_txtCat1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="6dp"
+                                android:text="Jobs"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+
+                            <ImageView
+                                android:id="@+id/appDash_decorImg2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_below="@+id/appDash_txtCat1"
+                                android:layout_alignParentStart="true"
+                                android:layout_marginStart="0dp"
+                                android:layout_marginTop="0dp"
+                                app:srcCompat="@android:drawable/ic_dialog_info" />
+
+                            <TextView
+                                android:id="@+id/appDash_txtNum1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/appDash_txtCat1"
+                                android:layout_alignBottom="@+id/appDash_decorImg2"
+                                android:layout_alignParentEnd="true"
+                                android:layout_toEndOf="@+id/appDash_decorImg2"
+                                android:gravity="center_vertical"
+                                android:paddingStart="16dp"
+                                android:text="0"
+                                android:textAlignment="textStart"
+                                android:textColor="@color/purple_700"
+                                android:textSize="20dp" />
+
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:layout_weight="1"
+                        android:padding="2dp"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="3dp"
+                        app:cardPreventCornerOverlap="true"
+                        app:cardUseCompatPadding="true"
+                        app:contentPadding="12dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <TextView
+                                android:id="@+id/appDash_txtCat2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="6dp"
+                                android:text="Jobs"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+
+                            <ImageView
+                                android:id="@+id/appDash_decorImg3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_below="@+id/appDash_txtCat2"
+                                android:layout_alignParentStart="true"
+                                android:layout_marginStart="0dp"
+                                android:layout_marginTop="0dp"
+                                app:srcCompat="@android:drawable/ic_dialog_info" />
+
+                            <TextView
+                                android:id="@+id/appDash_txtNum2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/appDash_txtCat2"
+                                android:layout_alignBottom="@+id/appDash_decorImg3"
+                                android:layout_alignParentEnd="true"
+                                android:layout_toEndOf="@+id/appDash_decorImg3"
+                                android:gravity="center_vertical"
+                                android:paddingStart="16dp"
+                                android:text="0"
+                                android:textAlignment="textStart"
+                                android:textColor="@color/purple_700"
+                                android:textSize="20dp" />
+
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:layout_weight="1"
+                        android:padding="2dp"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="3dp"
+                        app:cardPreventCornerOverlap="true"
+                        app:cardUseCompatPadding="true"
+                        app:contentPadding="12dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <TextView
+                                android:id="@+id/appDash_txtCat3"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="6dp"
+                                android:text="Jobs"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+
+                            <ImageView
+                                android:id="@+id/appDash_decorImg4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_below="@+id/appDash_txtCat3"
+                                android:layout_alignParentStart="true"
+                                android:layout_marginStart="0dp"
+                                android:layout_marginTop="0dp"
+                                app:srcCompat="@android:drawable/ic_dialog_info" />
+
+                            <TextView
+                                android:id="@+id/appDash_txtNum3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/appDash_txtCat3"
+                                android:layout_alignBottom="@+id/appDash_decorImg4"
+                                android:layout_alignParentEnd="true"
+                                android:layout_toEndOf="@+id/appDash_decorImg4"
+                                android:gravity="center_vertical"
+                                android:paddingStart="16dp"
+                                android:text="0"
+                                android:textAlignment="textStart"
+                                android:textColor="@color/purple_700"
+                                android:textSize="20dp" />
+
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:layout_weight="1"
+                        android:padding="2dp"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="3dp"
+                        app:cardPreventCornerOverlap="true"
+                        app:cardUseCompatPadding="true"
+                        app:contentPadding="12dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <TextView
+                                android:id="@+id/appDash_txtCat4"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="6dp"
+                                android:text="Jobs"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+
+                            <ImageView
+                                android:id="@+id/appDash_decorImg5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_below="@+id/appDash_txtCat4"
+                                android:layout_alignParentStart="true"
+                                android:layout_marginStart="0dp"
+                                android:layout_marginTop="0dp"
+                                app:srcCompat="@android:drawable/ic_dialog_info" />
+
+                            <TextView
+                                android:id="@+id/appDash_txtNum4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/appDash_txtCat4"
+                                android:layout_alignBottom="@+id/appDash_decorImg5"
+                                android:layout_alignParentEnd="true"
+                                android:layout_toEndOf="@+id/appDash_decorImg5"
+                                android:gravity="center_vertical"
+                                android:paddingStart="16dp"
+                                android:text="0"
+                                android:textAlignment="textStart"
+                                android:textColor="@color/purple_700"
+                                android:textSize="20dp" />
+
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:layout_weight="1"
+                        android:padding="2dp"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="3dp"
+                        app:cardPreventCornerOverlap="true"
+                        app:cardUseCompatPadding="true"
+                        app:contentPadding="12dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <TextView
+                                android:id="@+id/appDash_txtCat5"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="6dp"
+                                android:text="Jobs"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+
+                            <ImageView
+                                android:id="@+id/appDash_decorImg6"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_below="@+id/appDash_txtCat5"
+                                android:layout_alignParentStart="true"
+                                android:layout_marginStart="0dp"
+                                android:layout_marginTop="0dp"
+                                app:srcCompat="@android:drawable/ic_dialog_info" />
+
+                            <TextView
+                                android:id="@+id/appDash_txtNum5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/appDash_txtCat5"
+                                android:layout_alignBottom="@+id/appDash_decorImg6"
+                                android:layout_alignParentEnd="true"
+                                android:layout_toEndOf="@+id/appDash_decorImg6"
+                                android:gravity="center_vertical"
+                                android:paddingStart="16dp"
+                                android:text="0"
+                                android:textAlignment="textStart"
+                                android:textColor="@color/purple_700"
+                                android:textSize="20dp" />
+
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:layout_weight="1"
+                        android:padding="2dp"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="3dp"
+                        app:cardPreventCornerOverlap="true"
+                        app:cardUseCompatPadding="true"
+                        app:contentPadding="12dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <TextView
+                                android:id="@+id/appDash_txtCat6"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="6dp"
+                                android:text="Jobs"
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+
+                            <ImageView
+                                android:id="@+id/appDash_decorImg7"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_below="@+id/appDash_txtCat6"
+                                android:layout_alignParentStart="true"
+                                android:layout_marginStart="0dp"
+                                android:layout_marginTop="0dp"
+                                app:srcCompat="@android:drawable/ic_dialog_info" />
+
+                            <TextView
+                                android:id="@+id/appDash_txtNum6"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/appDash_txtCat6"
+                                android:layout_alignBottom="@+id/appDash_decorImg7"
+                                android:layout_alignParentEnd="true"
+                                android:layout_toEndOf="@+id/appDash_decorImg7"
+                                android:gravity="center_vertical"
+                                android:paddingStart="16dp"
+                                android:text="0"
+                                android:textAlignment="textStart"
+                                android:textColor="@color/purple_700"
+                                android:textSize="20dp" />
+
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+                </TableRow>
+
+            </TableLayout>
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="Recommended Jobs"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="3dp"
                 app:cardPreventCornerOverlap="true"
                 app:cardUseCompatPadding="true"
                 app:contentPadding="12dp">
 
-                <RelativeLayout
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/textView3"
+                        android:id="@+id/appDash_txtJobName1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="0dp"
                         android:padding="6dp"
-                        android:text="Jobs"
+                        android:text="Job Name"
                         android:textColor="@color/black"
                         android:textSize="16dp"
                         android:textStyle="bold" />
 
-                    <ImageView
-                        android:id="@+id/imageView2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_below="@+id/textView3"
-                        android:layout_alignParentStart="true"
-                        android:layout_marginStart="0dp"
-                        android:layout_marginTop="0dp"
-                        app:srcCompat="@android:drawable/ic_dialog_info" />
+                    <TextView
+                        android:id="@+id/appDash_txtJobComp1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="6dp"
+                        android:text="Company"
+                        android:textColor="@color/black"
+                        android:textSize="16dp" />
 
                     <TextView
-                        android:id="@+id/textView4"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/appDash_txtLoc1"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/textView3"
-                        android:layout_alignBottom="@+id/imageView2"
-                        android:layout_alignParentEnd="true"
-                        android:layout_toEndOf="@+id/imageView2"
-                        android:gravity="center_vertical"
-                        android:paddingStart="16dp"
-                        android:text="0"
-                        android:textAlignment="textStart"
-                        android:textColor="@color/purple_700"
-                        android:textSize="20dp" />
+                        android:padding="6dp"
+                        android:text="Location"
+                        android:textColor="@color/black"
+                        android:textSize="16dp" />
 
-                </RelativeLayout>
+                </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="match_parent"
+                android:padding="2dp"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="3dp"
                 app:cardPreventCornerOverlap="true"
                 app:cardUseCompatPadding="true"
                 app:contentPadding="12dp">
 
-                <RelativeLayout
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/textView3"
+                        android:id="@+id/appDash_txtJobName2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="0dp"
                         android:padding="6dp"
-                        android:text="Jobs"
+                        android:text="Job Name"
                         android:textColor="@color/black"
                         android:textSize="16dp"
                         android:textStyle="bold" />
 
-                    <ImageView
-                        android:id="@+id/imageView2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_below="@+id/textView3"
-                        android:layout_alignParentStart="true"
-                        android:layout_marginStart="0dp"
-                        android:layout_marginTop="0dp"
-                        app:srcCompat="@android:drawable/ic_dialog_info" />
+                    <TextView
+                        android:id="@+id/appDash_txtJobComp2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="6dp"
+                        android:text="Company"
+                        android:textColor="@color/black"
+                        android:textSize="16dp" />
 
                     <TextView
-                        android:id="@+id/textView4"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/appDash_txtLoc2"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/textView3"
-                        android:layout_alignBottom="@+id/imageView2"
-                        android:layout_alignParentEnd="true"
-                        android:layout_toEndOf="@+id/imageView2"
-                        android:gravity="center_vertical"
-                        android:paddingStart="16dp"
-                        android:text="0"
-                        android:textAlignment="textStart"
-                        android:textColor="@color/purple_700"
-                        android:textSize="20dp" />
+                        android:padding="6dp"
+                        android:text="Location"
+                        android:textColor="@color/black"
+                        android:textSize="16dp" />
 
-                </RelativeLayout>
+                </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="match_parent"
+                android:padding="2dp"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="3dp"
                 app:cardPreventCornerOverlap="true"
                 app:cardUseCompatPadding="true"
                 app:contentPadding="12dp">
 
-                <RelativeLayout
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/textView3"
+                        android:id="@+id/appDash_txtJobName3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="0dp"
                         android:padding="6dp"
-                        android:text="Jobs"
+                        android:text="Job Name"
                         android:textColor="@color/black"
                         android:textSize="16dp"
                         android:textStyle="bold" />
 
-                    <ImageView
-                        android:id="@+id/imageView2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_below="@+id/textView3"
-                        android:layout_alignParentStart="true"
-                        android:layout_marginStart="0dp"
-                        android:layout_marginTop="0dp"
-                        app:srcCompat="@android:drawable/ic_dialog_info" />
+                    <TextView
+                        android:id="@+id/appDash_txtJobComp3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="6dp"
+                        android:text="Company"
+                        android:textColor="@color/black"
+                        android:textSize="16dp" />
 
                     <TextView
-                        android:id="@+id/textView4"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/appDash_txtLoc3"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/textView3"
-                        android:layout_alignBottom="@+id/imageView2"
-                        android:layout_alignParentEnd="true"
-                        android:layout_toEndOf="@+id/imageView2"
-                        android:gravity="center_vertical"
-                        android:paddingStart="16dp"
-                        android:text="0"
-                        android:textAlignment="textStart"
-                        android:textColor="@color/purple_700"
-                        android:textSize="20dp" />
+                        android:padding="6dp"
+                        android:text="Location"
+                        android:textColor="@color/black"
+                        android:textSize="16dp" />
 
-                </RelativeLayout>
+                </LinearLayout>
+
             </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="2dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="3dp"
+                app:cardPreventCornerOverlap="true"
+                app:cardUseCompatPadding="true"
+                app:contentPadding="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/appDash_txtJobName4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="0dp"
+                        android:padding="6dp"
+                        android:text="Job Name"
+                        android:textColor="@color/black"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/appDash_txtJobComp4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="6dp"
+                        android:text="Company"
+                        android:textColor="@color/black"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:id="@+id/appDash_txtLoc4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="6dp"
+                        android:text="Location"
+                        android:textColor="@color/black"
+                        android:textSize="16dp" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="2dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="3dp"
+                app:cardPreventCornerOverlap="true"
+                app:cardUseCompatPadding="true"
+                app:contentPadding="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/appDash_txtJobName5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="0dp"
+                        android:padding="6dp"
+                        android:text="Job Name"
+                        android:textColor="@color/black"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/appDash_txtJobComp5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="6dp"
+                        android:text="Company"
+                        android:textColor="@color/black"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:id="@+id/appDash_txtLoc5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="6dp"
+                        android:text="Location"
+                        android:textColor="@color/black"
+                        android:textSize="16dp" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="View All"
+                android:textAlignment="center"
+                android:textAllCaps="false" />
 
         </LinearLayout>
     </ScrollView>
+
 </LinearLayout>
