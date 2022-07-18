@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".ApplicantSignIn">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/appSignIn_decorLogo"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:padding="16dp"
+                app:srcCompat="@drawable/logo" />
+
+            <TextView
+                android:id="@+id/appSignIn_decorType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="Applicant"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="24dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/appSignIn_inputEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Email Address"
+                android:inputType="textEmailAddress" />
+
+            <EditText
+                android:id="@+id/appSignIn_inputPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Password"
+                android:inputType="textPassword" />
+
+            <Button
+                android:id="@+id/textButton"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="0dp"
+                android:paddingTop="0dp"
+                android:paddingBottom="0dp"
+                android:text="Forgot Password"
+                android:textAlignment="textStart"
+                android:textAllCaps="false"
+                app:iconPadding="0dp" />
+
+            <Button
+                android:id="@+id/appSignIn_btnLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Login"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/appSignIn_btnSigUp"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="0dp"
+                android:paddingTop="0dp"
+                android:paddingBottom="0dp"
+                android:text="Sign up"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                app:iconPadding="0dp" />
+
+            <Button
+                android:id="@+id/appSignIn_btnTransfer"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="0dp"
+                android:paddingTop="0dp"
+                android:paddingBottom="0dp"
+                android:text="Login as Employer"
+                android:textAlignment="textStart"
+                android:textAllCaps="false"
+                app:iconPadding="0dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

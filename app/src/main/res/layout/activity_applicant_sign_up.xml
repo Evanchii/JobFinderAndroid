@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".ApplicantSignUp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/appSignUp_decorTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Register as Applicant"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="24dp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/appSignUp_decorFName"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="First Name"
+                android:padding="8dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/appSignUp_inputName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/appSignUp_decorLName"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Last Name"
+                android:padding="8dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/appSignUp_inputLName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/appSignUp_decorEmail"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Email Address"
+                android:padding="8dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/appSignUp_inputEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/appSignUp_decorPass"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Password"
+                android:padding="8dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/appSignUp_inputPass"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/appSignUp_decorConfPass"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Confirm Password"
+                android:padding="8dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/appSignUp_inputConfPass"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="By continuing, you acknowledge that you accept Job Finder's Privacy Policy and Terms and Condition"
+                android:textAlignment="center"
+                android:textColor="@color/black" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sign up"
+                android:textAllCaps="false" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
