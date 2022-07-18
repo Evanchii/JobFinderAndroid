@@ -19,6 +19,9 @@
             android:name=".ApplicantJobList"
             android:exported="false" />
         <activity
+            android:name=".EmployerSignIn"
+            android:exported="false" />
+        <activity
             android:name=".ApplicantDashboard"
             android:exported="false" />
         <activity
@@ -27,9 +30,9 @@
         <activity
             android:name=".ApplicantSignIn"
             android:exported="false" />
-        <activity
-            android:name=".EmployerSignIn"
-            android:exported="false" />
+    <!--        <activity-->
+    <!--            android:name=".EmployerSignIn"-->
+    <!--            android:exported="false" />-->
         <activity
             android:name=".EmployerSignUp"
             android:exported="false" />

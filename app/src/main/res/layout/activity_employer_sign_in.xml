@@ -57,6 +57,7 @@
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="_forgotPassword"
                 android:padding="0dp"
                 android:paddingTop="0dp"
                 android:paddingBottom="0dp"
@@ -69,6 +70,7 @@
                 android:id="@+id/empSignIn_btnLogin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="_loginEmployer"
                 android:text="Login"
                 android:textAllCaps="false" />
 
@@ -77,6 +79,7 @@
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="_signUpEmployer"
                 android:padding="0dp"
                 android:paddingTop="0dp"
                 android:paddingBottom="0dp"
@@ -90,6 +93,7 @@
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="_signInAsApplicant"
                 android:padding="0dp"
                 android:paddingTop="0dp"
                 android:paddingBottom="0dp"

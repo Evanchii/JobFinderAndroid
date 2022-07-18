@@ -6,10 +6,14 @@ import android.content.Intent;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class CommonFunctions {
+
 
     @SuppressLint("NonConstantResourceId")
     public static boolean menu(Context con, MenuItem item, String src) {
+        FirebaseAuth mAuth;
         Intent i = null;
 //        mAuth = FirebaseAuth.getInstance();
         switch (item.getItemId()) {
@@ -31,8 +35,12 @@ public class CommonFunctions {
                 break;
             case R.id.action_logout:
                 if(!src.equals(item.getTitle()))
-                    Toast.makeText(con, "Function To Follow: Logout", Toast.LENGTH_SHORT).show();
-//                    i = new Intent(con, Location.class);
+                    Toast.makeText(con, "Logout", Toast.LENGTH_SHORT).show();
+
+                    mAuth = FirebaseAuth.getInstance();
+                    mAuth.signOut();
+                    i = new Intent(con, ApplicantSignIn.class);
+
                 break;
         }
         if(i!=null) {
