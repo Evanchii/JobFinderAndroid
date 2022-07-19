@@ -11,4 +11,24 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="Open">Open</string>
     <string name="Close">Close</string>
+    <string-array name="gender">
+        <item>Male</item>
+        <item>Female</item>
+        <item>Prefer not to say</item>
+    </string-array>
+    <string-array name="specialization">
+        <item>Accounting/Finance</item>
+        <item>Admin/Human Resource</item>
+        <item>Sales/Marketing"></item>
+        <item>Arts/Media/Communication</item>
+        <item>Hotel/Restaurant Services</item>
+        <item>Education/Training</item>
+        <item>Computer/Information Technology</item>
+        <item>Engineering</item>
+        <item>Manufacturing</item>
+        <item>Building</item>
+        <item>Science</item>
+        <item>Healthcare</item>
+        <item>Others</item>
+    </string-array>
 </resources>

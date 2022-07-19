@@ -5,7 +5,9 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 
 import com.google.android.material.navigation.NavigationView;
@@ -20,6 +22,8 @@ public class ApplicantJobList extends AppCompatActivity implements NavigationVie
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
+        getSupportActionBar().setTitle("Find A Job");
+        getSupportActionBar().setSubtitle("Applicant JobFinder");
         setContentView(R.layout.activity_applicant_job_list);
 
         DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawerButton);
@@ -35,6 +39,11 @@ public class ApplicantJobList extends AppCompatActivity implements NavigationVie
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.notification) {
+            startActivity(new Intent(this, Notification.class));
+        }
         if (actionBarDrawerToggle.onOptionsItemSelected(item))
             return true;
         return super.onOptionsItemSelected(item);
@@ -45,5 +54,13 @@ public class ApplicantJobList extends AppCompatActivity implements NavigationVie
         if (CommonFunctions.menu(this, item, "Find a Job"))
             finish();
         return true;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // R.menu.mymenu is a reference to an xml file named mymenu.xml which should be inside your res/menu directory.
+        // If you don't have res/menu, just create a directory named "menu" inside res
+        getMenuInflater().inflate(R.menu.notification, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 }
