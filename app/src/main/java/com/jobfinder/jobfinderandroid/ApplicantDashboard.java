@@ -95,7 +95,5 @@ public class ApplicantDashboard extends AppCompatActivity implements NavigationV
         return super.onCreateOptionsMenu(menu);
     }
 
-    public void _logOut(View view){
-        mAuth.signOut();
-    }
+
 }
