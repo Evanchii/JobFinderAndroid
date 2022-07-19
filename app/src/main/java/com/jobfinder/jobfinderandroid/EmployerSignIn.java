@@ -49,7 +49,7 @@ public class EmployerSignIn extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isComplete()){
                                 String userID = mAuth.getCurrentUser().getUid();
-                                startActivity(new Intent(EmployerSignIn.this,ApplicantDashboard.class));
+                                startActivity(new Intent(EmployerSignIn.this,EmployerDashboard.class));
                             }
                         }
                     }

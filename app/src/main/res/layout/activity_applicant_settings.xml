@@ -47,7 +47,8 @@
                 app:cardCornerRadius="0dp"
                 app:cardElevation="0dp"
                 app:cardUseCompatPadding="true"
-                app:contentPadding="5dp">
+                app:contentPadding="5dp"
+                android:foreground="?android:attr/selectableItemBackground">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -120,7 +121,8 @@
                 app:cardCornerRadius="0dp"
                 app:cardElevation="0dp"
                 app:cardUseCompatPadding="true"
-                app:contentPadding="5dp">
+                app:contentPadding="5dp"
+                android:foreground="?android:attr/selectableItemBackground">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -178,7 +180,8 @@
                 app:cardCornerRadius="0dp"
                 app:cardElevation="0dp"
                 app:cardUseCompatPadding="true"
-                app:contentPadding="5dp">
+                app:contentPadding="5dp"
+                android:foreground="?android:attr/selectableItemBackground">
 
                 <LinearLayout
                     android:layout_width="match_parent"

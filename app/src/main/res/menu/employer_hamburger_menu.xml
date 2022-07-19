@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/action_home"
+            android:icon="@drawable/ic_home"
+            android:orderInCategory="100"
+            android:title="Home"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/action_post_job"
+            android:icon="@drawable/ic_briefcase"
+            android:orderInCategory="100"
+            android:title="Post a Job"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/action_applicants"
+            android:icon="@drawable/ic_users"
+            android:orderInCategory="100"
+            android:title="Applicants"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/action_soi"
+            android:icon="@drawable/ic_calendar"
+            android:orderInCategory="100"
+            android:title="Scheduled for Interview"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/action_profile"
+            android:icon="@drawable/ic_building"
+            android:orderInCategory="100"
+            android:title="Company Profile"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/action_settings"
+            android:icon="@drawable/ic_settings"
+            android:orderInCategory="100"
+            android:title="Settings"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/action_logout"
+            android:icon="@drawable/ic_logout"
+            android:orderInCategory="100"
+            android:title="Logout"
+            app:showAsAction="never" />
+    </group>
+</menu>

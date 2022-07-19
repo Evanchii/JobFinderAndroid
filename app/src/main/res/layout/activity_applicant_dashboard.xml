@@ -65,7 +65,9 @@
                             app:cardElevation="3dp"
                             app:cardPreventCornerOverlap="true"
                             app:cardUseCompatPadding="true"
-                            app:contentPadding="12dp">
+                            app:contentPadding="12dp"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:clickable="true">
 
                             <RelativeLayout
                                 android:layout_width="match_parent"
@@ -118,7 +120,9 @@
                             app:cardElevation="3dp"
                             app:cardPreventCornerOverlap="true"
                             app:cardUseCompatPadding="true"
-                            app:contentPadding="12dp">
+                            app:contentPadding="12dp"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:clickable="true">
 
                             <RelativeLayout
                                 android:layout_width="match_parent"
@@ -171,7 +175,9 @@
                             app:cardElevation="3dp"
                             app:cardPreventCornerOverlap="true"
                             app:cardUseCompatPadding="true"
-                            app:contentPadding="12dp">
+                            app:contentPadding="12dp"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:clickable="true">
 
                             <RelativeLayout
                                 android:layout_width="match_parent"
@@ -229,7 +235,9 @@
                             app:cardElevation="3dp"
                             app:cardPreventCornerOverlap="true"
                             app:cardUseCompatPadding="true"
-                            app:contentPadding="12dp">
+                            app:contentPadding="12dp"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:clickable="true">
 
                             <RelativeLayout
                                 android:layout_width="match_parent"
@@ -282,7 +290,9 @@
                             app:cardElevation="3dp"
                             app:cardPreventCornerOverlap="true"
                             app:cardUseCompatPadding="true"
-                            app:contentPadding="12dp">
+                            app:contentPadding="12dp"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:clickable="true">
 
                             <RelativeLayout
                                 android:layout_width="match_parent"
@@ -335,7 +345,9 @@
                             app:cardElevation="3dp"
                             app:cardPreventCornerOverlap="true"
                             app:cardUseCompatPadding="true"
-                            app:contentPadding="12dp">
+                            app:contentPadding="12dp"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:clickable="true">
 
                             <RelativeLayout
                                 android:layout_width="match_parent"
@@ -400,7 +412,9 @@
                     app:cardElevation="3dp"
                     app:cardPreventCornerOverlap="true"
                     app:cardUseCompatPadding="true"
-                    app:contentPadding="12dp">
+                    app:contentPadding="12dp"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:clickable="true">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -448,7 +462,9 @@
                     app:cardElevation="3dp"
                     app:cardPreventCornerOverlap="true"
                     app:cardUseCompatPadding="true"
-                    app:contentPadding="12dp">
+                    app:contentPadding="12dp"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:clickable="true">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -496,7 +512,9 @@
                     app:cardElevation="3dp"
                     app:cardPreventCornerOverlap="true"
                     app:cardUseCompatPadding="true"
-                    app:contentPadding="12dp">
+                    app:contentPadding="12dp"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:clickable="true">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -544,7 +562,9 @@
                     app:cardElevation="3dp"
                     app:cardPreventCornerOverlap="true"
                     app:cardUseCompatPadding="true"
-                    app:contentPadding="12dp">
+                    app:contentPadding="12dp"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:clickable="true">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -592,7 +612,9 @@
                     app:cardElevation="3dp"
                     app:cardPreventCornerOverlap="true"
                     app:cardUseCompatPadding="true"
-                    app:contentPadding="12dp">
+                    app:contentPadding="12dp"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:clickable="true">
 
                     <LinearLayout
                         android:layout_width="match_parent"

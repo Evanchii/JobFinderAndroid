@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JobFinderAndroid">
         <activity
+            android:name=".EmployerDashboard"
+            android:exported="false" />
+        <activity
             android:name=".Notification"
             android:exported="false" />
         <activity
