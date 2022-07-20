@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -60,6 +61,7 @@ public class SettingsEmail extends AppCompatActivity {
                                     public void onComplete(@NonNull Task<Void> task) {
                                         if (task.isSuccessful()) {
                                             Log.d("Email", "User email address updated.");
+                                            Toast.makeText(SettingsEmail.this, "User Email Address Updated.", Toast.LENGTH_SHORT);
 
                                             mAuth.signOut();
                                             startActivity(new Intent(SettingsEmail.this, ApplicantSignIn.class));
@@ -70,9 +72,11 @@ public class SettingsEmail extends AppCompatActivity {
                 });
             }else {
                 Log.d("Email", "old Email and new Email cant be equal");
+                Toast.makeText(SettingsEmail.this, "Old Email and New Email is Equal", Toast.LENGTH_SHORT);
             }
         }else {
             Log.d("Email", "old Email and new Email is Required");
+            Toast.makeText(SettingsEmail.this, "Old Email and new Email is Required", Toast.LENGTH_SHORT);
         }
 
     }
