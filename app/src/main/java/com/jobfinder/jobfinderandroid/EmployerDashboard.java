@@ -48,7 +48,7 @@ public class EmployerDashboard extends AppCompatActivity implements NavigationVi
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        if (CommonFunctions.menu(this, item, "Home"))
+        if (CommonFunctions.employerMenu(this, item, "Home"))
             finish();
         return true;
     }

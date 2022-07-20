@@ -52,7 +52,7 @@ public class ApplicantSettings extends AppCompatActivity implements NavigationVi
 
     @Override
     public boolean onNavigationItemSelected(@NonNull @NotNull MenuItem item) {
-        if (CommonFunctions.menu(this, item, "Settings"))
+        if (CommonFunctions.applicantMenu(this, item, "Settings"))
             finish();
         return true;
     }

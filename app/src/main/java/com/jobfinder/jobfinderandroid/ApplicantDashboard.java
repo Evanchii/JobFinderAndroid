@@ -11,7 +11,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -82,7 +81,7 @@ public class ApplicantDashboard extends AppCompatActivity implements NavigationV
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        if (CommonFunctions.menu(this, item, "Home"))
+        if (CommonFunctions.applicantMenu(this, item, "Home"))
             finish();
         return true;
     }

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="12dp"
+    tools:context=".JobView">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/jobView_imgLogo"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:padding="12dp"
+                    app:srcCompat="@drawable/ic_briefcase" />
+
+                <TextView
+                    android:id="@+id/jobView_txtJobName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_above="@id/layoutPlaceholder"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_toEndOf="@+id/jobView_imgLogo"
+                    android:gravity="bottom"
+                    android:padding="6dp"
+                    android:text="TextView"
+                    android:textColor="@color/black"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:id="@+id/jobView_companyName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_below="@id/jobView_txtJobName"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toEndOf="@+id/jobView_imgLogo"
+                    android:padding="12dp"
+                    android:text="TextView"
+                    android:textColor="@color/blue"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/divider4"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider" />
+
+            <TextView
+                android:id="@+id/jobView_decorLoc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Location"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/jobView_txtLoc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="8dp"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                tools:text="Mars" />
+
+            <TextView
+                android:id="@+id/jobView_decorSalary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Salary"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/jobView_txtSalary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="8dp"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/jobView_decorNature"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Job Nature"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/jobView_txtNature"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="8dp"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/jobView_decorDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Job Description"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/jobView_txtDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="8dp"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                tools:text="Lorem Ipsum dolor sit amet" />
+
+            <TextView
+                android:id="@+id/jobView_decorReq"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Requirements"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/jobView_txtSkills"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="8dp"
+                android:text="Skills"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/jobView_txtExp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="8dp"
+                android:text="Experience"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <View
+                android:id="@+id/divider5"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

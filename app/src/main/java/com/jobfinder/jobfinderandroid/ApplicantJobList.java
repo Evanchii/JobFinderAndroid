@@ -51,7 +51,7 @@ public class ApplicantJobList extends AppCompatActivity implements NavigationVie
 
     @Override
     public boolean onNavigationItemSelected(@NonNull @NotNull MenuItem item) {
-        if (CommonFunctions.menu(this, item, "Find a Job"))
+        if (CommonFunctions.applicantMenu(this, item, "Find a Job"))
             finish();
         return true;
     }

@@ -1,20 +1,20 @@
 package com.jobfinder.jobfinderandroid;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.drawerlayout.widget.DrawerLayout;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
+
 import com.google.android.material.navigation.NavigationView;
 
 import org.jetbrains.annotations.NotNull;
 
-public class ApplicantProfile extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class EmployerProfile extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private ActionBarDrawerToggle actionBarDrawerToggle;
 
@@ -23,8 +23,8 @@ public class ApplicantProfile extends AppCompatActivity implements NavigationVie
         super.onCreate(savedInstanceState);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         getSupportActionBar().setTitle("Profile");
-        getSupportActionBar().setSubtitle("Applicant JobFinder");
-        setContentView(R.layout.activity_applicant_profile);
+        getSupportActionBar().setSubtitle("employer JobFinder");
+        setContentView(R.layout.activity_employer_profile);
 
         DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawerButton);
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.Open, R.string.Close);
@@ -51,7 +51,7 @@ public class ApplicantProfile extends AppCompatActivity implements NavigationVie
 
     @Override
     public boolean onNavigationItemSelected(@NonNull @NotNull MenuItem item) {
-        if (CommonFunctions.applicantMenu(this, item, "Profile"))
+        if (CommonFunctions.employerMenu(this, item, "Profile"))
             finish();
         return true;
     }
