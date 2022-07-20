@@ -158,7 +158,7 @@ public class ApplicantProfile extends AppCompatActivity implements NavigationVie
 
     @Override
     public boolean onNavigationItemSelected(@NonNull @NotNull MenuItem item) {
-        if (CommonFunctions.menu(this, item, "Profile"))
+        if (CommonFunctions.applicantMenu(this, item, "Profile"))
             finish();
         return true;
     }

@@ -10,6 +10,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JobFinderAndroid">
         <activity
+            android:name=".JobApply"
+            android:exported="false" />
+        <activity
+            android:name=".ApplicantInfo"
+            android:exported="false" />
+        <activity
+            android:name=".ApplicantList"
+            android:exported="false" />
+        <activity
+            android:name=".EmployerEditJob"
+            android:exported="false" />
+        <activity
+            android:name=".JobView"
+            android:exported="false" />
+        <activity
+            android:name=".EmployerPostedJobs"
+            android:exported="false" />
+        <activity
+            android:name=".EmployerSettings"
+            android:exported="false" />
+        <activity
             android:name=".EmployerDashboard"
             android:exported="false" />
         <activity

@@ -31,4 +31,11 @@
         <item>Healthcare</item>
         <item>Others</item>
     </string-array>
+    <string-array name="nature">
+        <item>Full Time</item>
+        <item>Part Time Job</item>
+        <item>Internship</item>
+        <item>Temporary Job</item>
+        <item>Summer Job</item>
+    </string-array>
 </resources>

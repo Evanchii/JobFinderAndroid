@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".ApplicantInfo">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="4dp"
+                app:cardUseCompatPadding="true"
+                app:contentPadding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/imageView2"
+                        android:layout_width="match_parent"
+                        android:layout_height="110dp"
+                        android:padding="8dp"
+                        app:srcCompat="@drawable/ic_profile" />
+
+                    <TextView
+                        android:id="@+id/appInfo_txtFullName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="4dp"
+                        android:textColor="@color/black"
+                        android:textSize="18dp" />
+
+                    <TextView
+                        android:id="@+id/textView8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="4dp"
+                        android:text="Applicant"
+                        android:textColor="@color/black"
+                        android:textSize="16dp" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="4dp"
+                app:cardUseCompatPadding="true"
+                app:contentPadding="16dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/appInfo_decorName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@id/appInfo_txtName"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:text="Name"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/appInfo_txtName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_toEndOf="@id/appInfo_decorName"
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/appInfo_decorContact"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/appInfo_decorName"
+                        android:layout_alignBottom="@id/appInfo_txtContact"
+                        android:layout_alignParentStart="true"
+                        android:text="Contact Number"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/appInfo_txtContact"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/appInfo_txtName"
+                        android:layout_alignParentEnd="true"
+                        android:layout_toEndOf="@id/appInfo_decorContact"
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/appInfo_decorGender"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/appInfo_decorContact"
+                        android:layout_alignBottom="@id/appInfo_txtGender"
+                        android:layout_alignParentStart="true"
+                        android:text="Gender"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/appInfo_txtGender"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/appInfo_txtContact"
+                        android:layout_alignParentEnd="true"
+                        android:layout_toEndOf="@id/appInfo_decorGender"
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/appInfo_decorBDay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/appInfo_decorGender"
+                        android:layout_alignBottom="@id/appInfo_txtBDay"
+                        android:layout_alignParentStart="true"
+                        android:text="Birthday"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/appInfo_txtBDay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/appInfo_txtGender"
+                        android:layout_alignParentEnd="true"
+                        android:layout_toEndOf="@id/appInfo_decorBDay"
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/appInfo_decorAddress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/appInfo_decorBDay"
+                        android:layout_alignBottom="@id/appInfo_txtAddress"
+                        android:layout_alignParentStart="true"
+                        android:text="Address"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/appInfo_txtAddress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/appInfo_txtBDay"
+                        android:layout_alignParentEnd="true"
+                        android:layout_toEndOf="@id/appInfo_decorAddress"
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/appInfo_decorSpec"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/appInfo_decorAddress"
+                        android:layout_alignBottom="@id/appInfo_txtSpec"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentBottom="true"
+                        android:text="Specialization"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/appInfo_txtSpec"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/appInfo_txtAddress"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_toEndOf="@id/appInfo_decorSpec"
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/black" />
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:id="@+id/appInfo_actionAppList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/appInfo_appResume"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/cust_button_white"
+                    android:backgroundTint="@color/BlueViolet"
+                    android:text="View\nResume"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/appInfo_appSchedule"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/cust_button_white"
+                    android:backgroundTint="@color/DarkKhaki"
+                    android:text="Schedule for\nInterview"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/appInfo_appReject"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/cust_button_white"
+                    android:backgroundTint="@color/IndianRed"
+                    android:text="Reject"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/appInfo_actionSOI"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/appInfo_schedAccept"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/cust_button_white"
+                    android:backgroundTint="@color/SeaGreen"
+                    android:text="Accept"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/appInfo_schedReject"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/cust_button_white"
+                    android:backgroundTint="@color/IndianRed"
+                    android:text="Reject"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
