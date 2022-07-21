@@ -3,6 +3,7 @@ package com.jobfinder.jobfinderandroid;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.wifi.WifiManager;
 import android.text.format.Formatter;
 import android.view.MenuItem;
@@ -40,13 +41,14 @@ public class CommonFunctions {
                     i = new Intent(con, ApplicantSettings.class);
                 break;
             case R.id.action_logout:
-                if(!src.equals(item.getTitle()))
+                if(!src.equals(item.getTitle())) {
+                    SharedPreferences sharedpreferences = con.getSharedPreferences("MyPrefs", con.MODE_PRIVATE);
+                    sharedpreferences.edit().clear().apply();
                     Toast.makeText(con, "Logout", Toast.LENGTH_SHORT).show();
-
                     mAuth = FirebaseAuth.getInstance();
                     mAuth.signOut();
                     i = new Intent(con, ApplicantSignIn.class);
-
+                }
                 break;
         }
         if(i!=null) {
@@ -90,14 +92,15 @@ public class CommonFunctions {
                     i = new Intent(con, EmployerSettings.class);
                 break;
             case R.id.action_logout:
-                if(!src.equals(item.getTitle()))
+                if(!src.equals(item.getTitle())) {
+                    SharedPreferences sharedpreferences = con.getSharedPreferences("MyPrefs", con.MODE_PRIVATE);
+                    sharedpreferences.edit().clear().apply();
                     Toast.makeText(con, "Logout", Toast.LENGTH_SHORT).show();
-
-                mAuth = FirebaseAuth.getInstance();
-                mAuth.signOut();
-                i = new Intent(con, ApplicantSignIn.class);
-
-                break;
+                    mAuth = FirebaseAuth.getInstance();
+                    mAuth.signOut();
+                    i = new Intent(con, EmployerSignIn.class);
+                }
+                    break;
         }
         if(i!=null) {
             con.startActivity(i);
