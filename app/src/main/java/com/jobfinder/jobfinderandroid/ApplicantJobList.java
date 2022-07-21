@@ -15,8 +15,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.SearchView;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
@@ -138,7 +136,7 @@ public class ApplicantJobList extends AppCompatActivity implements NavigationVie
 //            empty.setVisibility(View.GONE);
             rv.setVisibility(View.VISIBLE);
             rv.setLayoutManager(new LinearLayoutManager(this));
-            JobListAdapter adapter = new JobListAdapter(this, jobList);
+            AdapterJobList adapter = new AdapterJobList(this, jobList);
             rv.setAdapter(adapter);
         } else {
 //            TextView empty = findViewById(R.id.txt_notifsEmpty);

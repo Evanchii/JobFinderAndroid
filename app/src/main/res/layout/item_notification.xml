@@ -2,11 +2,9 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/itemJob_parentCard"
+    android:id="@+id/itemNotif_card"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:foreground="?android:attr/selectableItemBackground"
-    android:clickable="true">
+    android:layout_height="wrap_content">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -14,34 +12,40 @@
         android:padding="6dp">
 
         <ImageView
-            android:id="@+id/itemJob_jobIcon"
+            android:id="@+id/itemNotif_icon"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:padding="5dp"
-            app:srcCompat="@drawable/ic_briefcase" />
+            app:srcCompat="@drawable/ic_information"
+            tools:ignore="UseAppTint" />
 
         <TextView
-            android:id="@+id/itemJob_txtTitle"
+            android:id="@+id/itemNotif_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@id/itemNotif_icon"
+            android:text="HH:MM AA" />
+
+        <TextView
+            android:id="@+id/itemNotif_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/itemNotif_title"
+            android:layout_alignParentTop="false"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="false"
+            android:layout_toEndOf="@id/itemNotif_icon"
+            android:text="This is a message" />
+
+        <TextView
+            android:id="@+id/itemNotif_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_toEndOf="@id/itemJob_jobIcon"
-            android:text="Job Title"
-            android:textColor="@color/black" />
-
-        <TextView
-            android:id="@+id/itemJob_txtCompany"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/itemJob_txtTitle"
-            android:layout_alignParentEnd="true"
-            android:layout_toEndOf="@+id/itemJob_jobIcon"
-            android:layout_toRightOf="@id/itemJob_jobIcon"
-            android:text="Company"
-            android:textColor="@color/black" />
-
+            android:text="MM/DD" />
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

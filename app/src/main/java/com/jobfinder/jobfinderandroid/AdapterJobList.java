@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
-import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,18 +15,10 @@ import android.widget.TextView;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.firebase.crashlytics.buildtools.reloc.org.apache.http.util.ByteArrayBuffer;
-
-import java.io.BufferedInputStream;
-import java.io.IOException;
 import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLConnection;
 import java.util.HashMap;
 
-public class JobListAdapter extends RecyclerView.Adapter<JobListAdapter.ViewHolder> {
+public class AdapterJobList extends RecyclerView.Adapter<AdapterJobList.ViewHolder> {
 
     private HashMap<String, HashMap<String, String>> mData;
     private LayoutInflater mInflater;
@@ -47,7 +38,7 @@ public class JobListAdapter extends RecyclerView.Adapter<JobListAdapter.ViewHold
         }
     }
 
-    public JobListAdapter(Context context, HashMap<String, HashMap<String, String>> mData) {
+    public AdapterJobList(Context context, HashMap<String, HashMap<String, String>> mData) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = mData;
         this.con = context;
