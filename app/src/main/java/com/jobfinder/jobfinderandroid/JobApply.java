@@ -77,6 +77,22 @@ public class JobApply extends AppCompatActivity {
                 dbJob.child(uid+"/resume").setValue(""); //To update!
 
                 dbUser.child("jobsApplied/"+ts).setValue(ts);
+
+                new CommonFunctions().createLog(view.getContext(), "Job Applied",
+                        uid + " has sent in their application for job: "+jobKey, "Job Finding",
+                        fname.getText() + " " + lname.getText(), uid);
+
+                dbJob.get().addOnCompleteListener(task -> {
+                    if(task.isComplete() && task.isSuccessful()) {
+                        new CommonFunctions().createNotification(
+                                task.getResult().child("employerID").getValue().toString(),
+                                "employer",
+                                "An applicant has applied!",
+                                fname.getText() + " has sent in their application for "+jobKey,
+                                "primary"
+                        );
+                    }
+                });
             } else {
                 Toast.makeText(view.getContext(), "Please fill all required data!", Toast.LENGTH_LONG).show();
             }
