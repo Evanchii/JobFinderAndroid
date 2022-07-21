@@ -14,10 +14,13 @@
         tools:context=".ApplicantJobList">
 
         <SearchView
+            android:id="@+id/appJobList_search"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:inputType="text" />
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/appJobList_rv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="4dp" />
