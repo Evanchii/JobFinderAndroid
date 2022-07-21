@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:onClick="btnApply"
     android:orientation="vertical"
     android:padding="12dp"
     tools:context=".JobView">
@@ -15,6 +16,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
             android:orientation="vertical">
 
             <RelativeLayout
@@ -37,7 +39,6 @@
                     android:layout_toEndOf="@+id/jobView_imgLogo"
                     android:gravity="bottom"
                     android:padding="6dp"
-                    android:text="TextView"
                     android:textColor="@color/black"
                     android:textSize="18dp" />
 
@@ -50,7 +51,6 @@
                     android:layout_alignParentBottom="true"
                     android:layout_toEndOf="@+id/jobView_imgLogo"
                     android:padding="12dp"
-                    android:text="TextView"
                     android:textColor="@color/blue"
                     android:textSize="16dp"
                     android:textStyle="bold" />
@@ -159,6 +159,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="?android:attr/listDivider" />
+
+            <Button
+                android:id="@+id/button5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Apply"
+                android:textAllCaps="false" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

@@ -1,6 +1,7 @@
 package com.jobfinder.jobfinderandroid;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Log;
@@ -10,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.io.IOException;
@@ -21,22 +23,26 @@ public class JobListAdapter extends RecyclerView.Adapter<JobListAdapter.ViewHold
 
     private HashMap<String, HashMap<String, String>> mData;
     private LayoutInflater mInflater;
+    private Context con;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private TextView companyName, jobTitle;
         private ImageView logo;
+        private CardView cv;
 
         public ViewHolder(View view) {
             super(view);
             companyName = view.findViewById(R.id.itemJob_txtCompany);
             jobTitle = view.findViewById(R.id.itemJob_txtTitle);
             logo = view.findViewById(R.id.itemJob_jobIcon);
+            cv = view.findViewById(R.id.itemJob_parentCard);
         }
     }
 
     public JobListAdapter(Context context, HashMap<String, HashMap<String, String>> mData) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = mData;
+        this.con = context;
     }
 
     // Create new views (invoked by the layout manager)
@@ -66,6 +72,10 @@ public class JobListAdapter extends RecyclerView.Adapter<JobListAdapter.ViewHold
             e.printStackTrace();
             viewHolder.logo.setImageResource(R.drawable.ic_briefcase);
         }
+
+        viewHolder.cv.setOnClickListener(view -> {
+            con.startActivity(new Intent(con, JobView.class).putExtra("jobKey", key));
+        });
     }
 
     // Return the size of your dataset (invoked by the layout manager)
