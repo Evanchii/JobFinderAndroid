@@ -17,6 +17,9 @@
             android:name=".JobApply"
             android:exported="false" />
         <activity
+            android:name=".EmployerProfile"
+            android:exported="false" />
+        <activity
             android:name=".ApplicantInfo"
             android:exported="false" />
         <activity
