@@ -19,8 +19,10 @@ import java.io.InputStream;
 import java.net.URL;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class AdapterNotification extends RecyclerView.Adapter<AdapterNotification.ViewHolder> {
 
@@ -86,7 +88,7 @@ public class AdapterNotification extends RecyclerView.Adapter<AdapterNotificatio
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         Long ts2 = timestamp.getTime();
         Long timeDiff = (ts2-ts1)/1000;
-        HashMap<Integer, String> timeDuration = new HashMap<>();
+        TreeMap<Integer, String> timeDuration = new TreeMap<>(Collections.reverseOrder());
         timeDuration.put(31536000, "year");
         timeDuration.put(2592000, "month");
         timeDuration.put(604800, "week");
