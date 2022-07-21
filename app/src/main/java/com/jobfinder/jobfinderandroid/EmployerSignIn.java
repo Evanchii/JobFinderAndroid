@@ -2,6 +2,7 @@ package com.jobfinder.jobfinderandroid;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -48,6 +49,11 @@ public class EmployerSignIn extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isComplete()){
+                                SharedPreferences sharedpreferences = getSharedPreferences("MyPrefs", view.getContext().MODE_PRIVATE);
+                                SharedPreferences.Editor editor = sharedpreferences.edit();
+                                editor.putString("userType", "employer");
+                                editor.commit();
+
                                 String userID = mAuth.getCurrentUser().getUid();
                                 startActivity(new Intent(EmployerSignIn.this,EmployerDashboard.class));
                             }
