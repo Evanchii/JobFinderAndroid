@@ -6,7 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -19,6 +21,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 
 public class JobView extends AppCompatActivity {
@@ -62,18 +65,36 @@ public class JobView extends AppCompatActivity {
                 desc.setText(data.child("description").getValue().toString());
                 exp.setText("-Experience: " + data.child("reqExperience").getValue().toString());
 
-                URL url = null;
-                try {
-                    url = new URL("http://192.168.1.4/uploads/jobs/"+jobKey+".png");
-                    Bitmap bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+                new DownloadImageTask(iv)
+                        .execute("https://www.jobfinder.cf/uploads/jobs/"+jobKey+".png");
 
-                    iv.setImageBitmap(bmp);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    iv.setImageResource(R.drawable.ic_briefcase);
-                }
             }
         });
+    }
+
+    private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
+        ImageView bmImage;
+
+        public DownloadImageTask(ImageView bmImage) {
+            this.bmImage = bmImage;
+        }
+
+        protected Bitmap doInBackground(String... urls) {
+            String urldisplay = urls[0];
+            Bitmap mIcon11 = null;
+            try {
+                InputStream in = new java.net.URL(urldisplay).openStream();
+                mIcon11 = BitmapFactory.decodeStream(in);
+            } catch (Exception e) {
+                Log.e("Error", e.getMessage());
+                e.printStackTrace();
+            }
+            return mIcon11;
+        }
+
+        protected void onPostExecute(Bitmap result) {
+            bmImage.setImageBitmap(result);
+        }
     }
 
     @Override

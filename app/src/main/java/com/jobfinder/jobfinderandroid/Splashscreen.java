@@ -1,5 +1,6 @@
 package com.jobfinder.jobfinderandroid;
 
+import android.Manifest;
 import android.content.Intent;
 import android.os.Bundle;
 import com.google.android.material.snackbar.Snackbar;
@@ -9,6 +10,7 @@ import android.os.Handler;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.app.ActivityCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -27,8 +29,13 @@ public class Splashscreen extends AppCompatActivity {
 
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
+//        Request Permission
+        ActivityCompat.requestPermissions(Splashscreen.this,
+                new String[]{Manifest.permission.INTERNET, Manifest.permission.ACCESS_WIFI_STATE},
+                1);
+
         Handler handler = new Handler();
-        Intent intent = (mAuth.getCurrentUser() != null) ? new Intent(Splashscreen.this, EmployerDashboard.class) : new Intent(Splashscreen.this, ApplicantSignIn.class);
+        Intent intent = (mAuth.getCurrentUser() != null) ? new Intent(Splashscreen.this, ApplicantDashboard.class) : new Intent(Splashscreen.this, ApplicantSignIn.class);
 //        Intent intent = new Intent(Splashscreen.this, ApplicantSignIn.class);
         handler.postDelayed(() -> {
             startActivity(intent);
