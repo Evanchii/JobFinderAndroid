@@ -2,6 +2,7 @@ package com.jobfinder.jobfinderandroid;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -35,8 +36,15 @@ public class Splashscreen extends AppCompatActivity {
                 1);
 
         Handler handler = new Handler();
-        Intent intent = (mAuth.getCurrentUser() != null) ? new Intent(Splashscreen.this, ApplicantDashboard.class) : new Intent(Splashscreen.this, ApplicantSignIn.class);
-//        Intent intent = new Intent(Splashscreen.this, ApplicantSignIn.class);
+
+        SharedPreferences sharedpreferences = getSharedPreferences("MyPrefs", this.MODE_PRIVATE);
+
+        Intent intent;
+        String userType = sharedpreferences.getString("userType", "");
+        if(mAuth.getCurrentUser() == null) intent = new Intent(Splashscreen.this, ApplicantSignIn.class);
+        else if(userType.equals("applicant")) intent = new Intent(Splashscreen.this, ApplicantDashboard.class);
+        else intent = new Intent(Splashscreen.this, EmployerDashboard.class);
+
         handler.postDelayed(() -> {
             startActivity(intent);
             finish();
