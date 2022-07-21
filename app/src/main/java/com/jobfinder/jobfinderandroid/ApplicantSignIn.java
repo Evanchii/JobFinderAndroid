@@ -16,6 +16,10 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class ApplicantSignIn extends AppCompatActivity {
 
@@ -23,6 +27,8 @@ public class ApplicantSignIn extends AppCompatActivity {
     private EditText password;
     private FirebaseAuth mAuth;
     private ProgressDialog dialog;
+    private String user;
+    private FirebaseDatabase dbRef;
 
 
     @Override
@@ -31,11 +37,19 @@ public class ApplicantSignIn extends AppCompatActivity {
         setContentView(R.layout.activity_applicant_sign_in);
 
         mAuth = FirebaseAuth.getInstance();
+        dbRef = FirebaseDatabase.getInstance();
+
+
+
+
     }
 
     public void _loginApplicant(View view){
         email = (EditText) findViewById(R.id.appSignIn_inputEmail);
         password = (EditText) findViewById(R.id.appSignIn_inputPassword);
+
+
+
 
         if(!email.getText().toString().trim().isEmpty() && !password.getText().toString().trim().isEmpty()){
             dialog = ProgressDialog.show(ApplicantSignIn.this,"Please Wait","Loging In",true);
@@ -43,13 +57,31 @@ public class ApplicantSignIn extends AppCompatActivity {
                     new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
-                            SharedPreferences sharedpreferences = getSharedPreferences("MyPrefs", view.getContext().MODE_PRIVATE);
-                            SharedPreferences.Editor editor = sharedpreferences.edit();
-                            editor.putString("userType", "applicant");
-                            editor.commit();
+                            user = mAuth.getCurrentUser().getUid();
+                            dbRef.getReference().child("user").child("applicant").addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    if(snapshot.hasChild(user)) {
+                                        SharedPreferences sharedpreferences = getSharedPreferences("MyPrefs", view.getContext().MODE_PRIVATE);
+                                        SharedPreferences.Editor editor = sharedpreferences.edit();
+                                        editor.putString("userType", "applicant");
+                                        editor.commit();
 
-                            String userID = mAuth.getCurrentUser().getUid();
-                            startActivity(new Intent(ApplicantSignIn.this,ApplicantDashboard.class));
+                                        String userID = mAuth.getCurrentUser().getUid();
+                                        startActivity(new Intent(ApplicantSignIn.this, ApplicantDashboard.class));
+                                    }else{
+                                        Toast.makeText(ApplicantSignIn.this,"You are not a Applicant", Toast.LENGTH_SHORT);
+                                        startActivity(new Intent(ApplicantSignIn.this, ApplicantSignIn.class));
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
+
+                                }
+                            });
+
+
                         }
                     }
             ).addOnFailureListener(new OnFailureListener() {

@@ -17,11 +17,17 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class EmployerSignIn extends AppCompatActivity {
 
 
     private FirebaseAuth mAuth;
+    private FirebaseDatabase dbRef;
+    private String user;
     private EditText email;
     private EditText password;
     private ProgressDialog dialog;
@@ -35,6 +41,7 @@ public class EmployerSignIn extends AppCompatActivity {
         setContentView(R.layout.activity_employer_sign_in);
 
         mAuth = FirebaseAuth.getInstance();
+        dbRef = FirebaseDatabase.getInstance();
     }
 
     public void _loginEmployer(View view){
@@ -49,13 +56,31 @@ public class EmployerSignIn extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isComplete()){
-                                SharedPreferences sharedpreferences = getSharedPreferences("MyPrefs", view.getContext().MODE_PRIVATE);
-                                SharedPreferences.Editor editor = sharedpreferences.edit();
-                                editor.putString("userType", "employer");
-                                editor.commit();
+                                user = mAuth.getCurrentUser().getUid();
+                                dbRef.getReference().child("user").child("employer").addValueEventListener(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                        if(snapshot.hasChild(user)){
+                                            SharedPreferences sharedpreferences = getSharedPreferences("MyPrefs", view.getContext().MODE_PRIVATE);
+                                            SharedPreferences.Editor editor = sharedpreferences.edit();
+                                            editor.putString("userType", "employer");
+                                            editor.commit();
 
-                                String userID = mAuth.getCurrentUser().getUid();
-                                startActivity(new Intent(EmployerSignIn.this,EmployerDashboard.class));
+                                            String userID = mAuth.getCurrentUser().getUid();
+                                            startActivity(new Intent(EmployerSignIn.this,EmployerDashboard.class));
+                                        }else{
+                                            Toast.makeText(EmployerSignIn.this,"You are not an Employer", Toast.LENGTH_SHORT);
+                                            startActivity(new Intent(EmployerSignIn.this, EmployerSignIn.class));
+                                        }
+
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                    }
+                                });
+
                             }
                         }
                     }
