@@ -114,12 +114,14 @@ public class ApplicantJobList extends AppCompatActivity implements NavigationVie
                             HashMap<String, String> tmp = new HashMap<>();
                             tmp.put("companyName", data.child("companyName").getValue().toString());
                             tmp.put("jobTitle", data.child("jobTitle").getValue().toString());
+                            tmp.put("mode", "appJobView");
                             jobList.put(data.getKey(), tmp);
                         }
                     } else {
                         HashMap<String, String> tmp = new HashMap<>();
                         tmp.put("companyName", data.child("companyName").getValue().toString());
                         tmp.put("jobTitle", data.child("jobTitle").getValue().toString());
+                        tmp.put("mode", "appJobView");
                         jobList.put(data.getKey(), tmp);
                     }
                 }

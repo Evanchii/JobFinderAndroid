@@ -64,15 +64,31 @@ public class AdapterJobList extends RecyclerView.Adapter<AdapterJobList.ViewHold
 
         new DownloadImageTask(viewHolder.logo)
                 .execute("https://www.jobfinder.cf/uploads/jobs/"+key+".png");
-//        Bitmap bmp = getBitmapFromURL("https://www.jobfinder.cf/uploads/jobs/"+key+".png");
-//        byte[] bitmapdata = getByteArrayImage("https://www.jobfinder.cf/uploads/jobs/"+key+".png");
-//        Bitmap bmp = BitmapFactory.decodeByteArray(bitmapdata , 0, bitmapdata .length);
-//        if(bmp != null)  viewHolder.logo.setImageBitmap(bmp);
-//        if(bmp != null)  viewHolder.logo.setImageBitmap(getCircleBitmap(bmp));
 
-        viewHolder.cv.setOnClickListener(view -> {
-            con.startActivity(new Intent(con, JobView.class).putExtra("jobKey", key));
-        });
+        View.OnClickListener click = null;
+        switch(mData.get(key).get("mode")) {
+            case "appJobView":
+                click = view -> {
+                    con.startActivity(new Intent(con, JobView.class).putExtra("jobKey", key));
+                };
+                break;
+            case "jobList":
+                click = view -> {
+                    con.startActivity(new Intent(con, EmployerEditJob.class).putExtra("jobKey", key));
+                };
+                break;
+            case "applicantList":
+                click = view -> {
+                    con.startActivity(new Intent(con, ApplicantList.class).putExtra("jobKey", key).putExtra("mode", "applicantList"));
+                };
+                break;
+            case "SOI":
+                click = view -> {
+                    con.startActivity(new Intent(con, ApplicantList.class).putExtra("jobKey", key).putExtra("mode", "SOI"));
+                };
+                break;
+        }
+        viewHolder.cv.setOnClickListener(click);
     }
 
     private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {

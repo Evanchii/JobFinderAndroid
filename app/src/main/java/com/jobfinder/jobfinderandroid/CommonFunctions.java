@@ -71,17 +71,17 @@ public class CommonFunctions {
             case R.id.action_post_job:
                 if(!src.equals(item.getTitle()))
                     i = new Intent(con, EmployerPostedJobs.class);
-                    i.putExtra("mode", "post_job");
+                    i.putExtra("mode", "jobList");
                 break;
             case R.id.action_applicants:
                 if(!src.equals(item.getTitle()))
                     i = new Intent(con, EmployerPostedJobs.class);
-                    i.putExtra("mode", "applicants");
+                    i.putExtra("mode", "applicantList");
                 break;
             case R.id.action_soi:
                 if(!src.equals(item.getTitle()))
                     i = new Intent(con, EmployerPostedJobs.class);
-                    i.putExtra("mode", "soi");
+                    i.putExtra("mode", "SOI");
                 break;
             case R.id.action_profile:
                 if(!src.equals(item.getTitle()))

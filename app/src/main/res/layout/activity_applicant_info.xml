@@ -201,7 +201,9 @@
                 android:id="@+id/appInfo_actionAppList"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:visibility="gone"
+                tools:visibility="visible">
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/appInfo_appResume"
@@ -244,7 +246,9 @@
                 android:id="@+id/appInfo_actionSOI"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:visibility="gone"
+                tools:visibility="visible">
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/appInfo_schedAccept"

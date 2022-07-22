@@ -2,7 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/itemJob_parentCard"
+    android:id="@+id/itemApp_card"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="4dp"
@@ -15,34 +15,26 @@
         android:padding="6dp">
 
         <ImageView
-            android:id="@+id/itemJob_jobIcon"
+            android:id="@+id/itemApp_icon"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:padding="5dp"
-            app:srcCompat="@drawable/ic_briefcase" />
+            app:srcCompat="@drawable/ic_profile" />
 
         <TextView
-            android:id="@+id/itemJob_txtTitle"
+            android:id="@+id/itemApp_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/itemApp_icon"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_toEndOf="@id/itemJob_jobIcon"
-            android:text="Job Title"
-            android:textColor="@color/black" />
-
-        <TextView
-            android:id="@+id/itemJob_txtCompany"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/itemJob_txtTitle"
-            android:layout_alignParentEnd="true"
-            android:layout_toEndOf="@+id/itemJob_jobIcon"
-            android:layout_toRightOf="@id/itemJob_jobIcon"
-            android:text="Company"
-            android:textColor="@color/black" />
+            android:layout_toEndOf="@id/itemApp_icon"
+            android:gravity="center_vertical"
+            android:padding="6dp"
+            android:textColor="@color/black"
+            tools:text="User Name" />
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>
