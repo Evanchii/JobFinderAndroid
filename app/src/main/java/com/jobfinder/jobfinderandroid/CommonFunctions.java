@@ -13,6 +13,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 
 public class CommonFunctions {
@@ -118,7 +119,8 @@ public class CommonFunctions {
          * primary - (i)
          */
 
-        String ts = (new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss.SSS").format(new java.util.Date())).toString();
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        String ts = String.valueOf(timestamp.getTime());
 
         DatabaseReference dbNotifPool = FirebaseDatabase.getInstance().getReference("notification/"+ts),
             userNotif = FirebaseDatabase.getInstance().getReference("user/"+userType+"/"+uid+"/notifications");
@@ -131,7 +133,8 @@ public class CommonFunctions {
     }
 
     public void createLog(Context con, String eventName, String eventDescription, String eventType, String name, String uid) {
-        String ts = (new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss.SSS").format(new java.util.Date())).toString();
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        String ts = String.valueOf(timestamp.getTime());
 
         Context context = con.getApplicationContext();
         WifiManager wm = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);

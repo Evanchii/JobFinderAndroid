@@ -231,24 +231,6 @@
                     android:ems="10"
                     android:inputType="none|phone" />
 
-                <TextView
-                    android:id="@+id/empProfile_decorEmail"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="2dp"
-                    android:text="Email"
-                    android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textSize="16sp" />
-
-                <EditText
-                    android:id="@+id/empProfile_inputEmail"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:clickable="false"
-                    android:ems="10"
-                    android:inputType="none|textEmailAddress" />
             </LinearLayout>
         </ScrollView>
 

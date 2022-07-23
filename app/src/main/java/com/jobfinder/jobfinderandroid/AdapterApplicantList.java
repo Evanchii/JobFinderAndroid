@@ -62,7 +62,7 @@ public class AdapterApplicantList extends RecyclerView.Adapter<AdapterApplicantL
 
         viewHolder.cv.setOnClickListener(view -> {
             con.startActivity(new Intent(con, ApplicantInfo.class)
-                    .putExtra("jobKey", key)
+                    .putExtra("jobKey", jobKey)
                     .putExtra("uid", mData.get(key).get("uid"))
                     .putExtra("mode", mode));
         });

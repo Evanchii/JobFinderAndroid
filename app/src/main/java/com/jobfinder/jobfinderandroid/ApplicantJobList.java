@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.SearchView;
+import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.DataSnapshot;
@@ -132,18 +133,16 @@ public class ApplicantJobList extends AppCompatActivity implements NavigationVie
     }
 
     public void inflateData() {
+        TextView empty = findViewById(R.id.txtNoData);
         RecyclerView rv = findViewById(R.id.appJobList_rv);
         if(!jobList.isEmpty()) {
-//            TextView empty = findViewById(R.id.txt_notifsEmpty);
-//            empty.setVisibility(View.GONE);
+            empty.setVisibility(View.GONE);
             rv.setVisibility(View.VISIBLE);
             rv.setLayoutManager(new LinearLayoutManager(this));
             AdapterJobList adapter = new AdapterJobList(this, jobList);
             rv.setAdapter(adapter);
         } else {
-//            TextView empty = findViewById(R.id.txt_notifsEmpty);
-//            empty.setVisibility(View.VISIBLE);
-
+            empty.setVisibility(View.VISIBLE);
             rv.setVisibility(View.GONE);
         }
     }

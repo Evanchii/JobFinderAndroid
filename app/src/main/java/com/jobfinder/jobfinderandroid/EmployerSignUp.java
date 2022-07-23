@@ -85,11 +85,9 @@ public class EmployerSignUp extends AppCompatActivity {
     private TextInputEditText description;
     private TextInputEditText website;
 
-    private String upLoadServerUri = null, imagepath=null, filename, sourcePath;
+    private String upLoadServerUri = null, filename, sourcePath;
     private int serverResponseCode = 0;
     private ProgressDialog dialog = null;
-    private String path;
-    private Uri uri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -119,54 +117,55 @@ public class EmployerSignUp extends AppCompatActivity {
         ActivityCompat.requestPermissions(EmployerSignUp.this,
                 new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.MANAGE_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE},
                 1);
-    }
+        }
 
     public void _empSignUp(View view){
 
-        dialog = ProgressDialog.show(EmployerSignUp.this, "", "Registering User...", true);
+        if(filename == null) {
+            Toast.makeText(view.getContext(), "Please upload your certificate of legitimacy.", Toast.LENGTH_LONG);
+        } else {
+            dialog = ProgressDialog.show(EmployerSignUp.this, "", "Registering User...", true);
 
-        boolean validate = true;
-        TextInputEditText[] txt = new TextInputEditText[]{fname,lname,phone,birthday,company,description,website,email,password,conPass};
+            boolean validate = true;
+            TextInputEditText[] txt = new TextInputEditText[]{fname,lname,phone,birthday,company,description,website,email,password,conPass};
 
-        for(int x = 0; x<10; x++) {
-            if(txt[x].getText().toString().isEmpty()) {
-//                    input Error Toast
-                Toast.makeText(EmployerSignUp.this,"Please Fill "+txt[x],Toast.LENGTH_SHORT).show();
-                Log.d("No Data","Data" +txt[x]);
-                validate = false;
+            for(int x = 0; x<10; x++) {
+                if(txt[x].getText().toString().isEmpty()) {
+                    Toast.makeText(EmployerSignUp.this,"Please Fill "+txt[x],Toast.LENGTH_SHORT).show();
+                    Log.d("No Data","Data" +txt[x]);
+                    validate = false;
+                }
             }
-        }
-        if(validate){
-            if(password.getText().toString().trim().equals(conPass.getText().toString().trim())){
-                mAuth.createUserWithEmailAndPassword(email.getText().toString().trim(),password.getText().toString().trim()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
-                            user = mAuth.getCurrentUser().getUid();
-                            Log.d("User ","User "+user);
-                            dbRef.getReference().child("user").child("employer").child(user).child("fname").setValue(fname.getText().toString());
-                            dbRef.getReference().child("user").child("employer").child(user).child("lname").setValue(lname.getText().toString());
-                            dbRef.getReference().child("user").child("employer").child(user).child("gender").setValue(gender.getSelectedItem().toString());
-                            dbRef.getReference().child("user").child("employer").child(user).child("phone").setValue(phone.getText().toString());
-                            dbRef.getReference().child("user").child("employer").child(user).child("birthdate").setValue(birthday.getText().toString());
-                            dbRef.getReference().child("user").child("employer").child(user).child("address").setValue(address.getText().toString());
-                            dbRef.getReference().child("user").child("employer").child(user).child("company").setValue(company.getText().toString());
-                            dbRef.getReference().child("user").child("employer").child(user).child("description").setValue(description.getText().toString());
-                            dbRef.getReference().child("user").child("employer").child(user).child("website").setValue(website.getText().toString());
-                            dbRef.getReference().child("user").child("employer").child(user).child("status").setValue("not-verified");
-                            dbRef.getReference().child("user").child("employer").child(user).child("verificationFile").setValue(user + filename.split("\\.")[filename.split("\\.").length-1]);
+            if(validate){
+                if(password.getText().toString().trim().equals(conPass.getText().toString().trim())){
+                    mAuth.createUserWithEmailAndPassword(email.getText().toString().trim(),password.getText().toString().trim()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if(task.isSuccessful()){
+                                user = mAuth.getCurrentUser().getUid();
+                                Log.d("User ","User "+user);
+                                dbRef.getReference().child("user").child("employer").child(user).child("fname").setValue(fname.getText().toString());
+                                dbRef.getReference().child("user").child("employer").child(user).child("lname").setValue(lname.getText().toString());
+                                dbRef.getReference().child("user").child("employer").child(user).child("gender").setValue(gender.getSelectedItem().toString());
+                                dbRef.getReference().child("user").child("employer").child(user).child("phone").setValue(phone.getText().toString());
+                                dbRef.getReference().child("user").child("employer").child(user).child("birthdate").setValue(birthday.getText().toString());
+                                dbRef.getReference().child("user").child("employer").child(user).child("address").setValue(address.getText().toString());
+                                dbRef.getReference().child("user").child("employer").child(user).child("company").setValue(company.getText().toString());
+                                dbRef.getReference().child("user").child("employer").child(user).child("description").setValue(description.getText().toString());
+                                dbRef.getReference().child("user").child("employer").child(user).child("website").setValue(website.getText().toString());
+                                dbRef.getReference().child("user").child("employer").child(user).child("status").setValue("not-verified");
+                                dbRef.getReference().child("user").child("employer").child(user).child("verificationFile").setValue(user +"."+ filename.split("\\.")[filename.split("\\.").length-1]);
 
-                            Log.d("Employer","Sign Up");
+                                Log.d("Employer","Sign Up");
 
-                            Context context = EmployerSignUp.this;
+                                new Thread(() -> {
+                                    uploadFile(sourcePath + "/" + filename, "uid="+user);
+                                }).start();
+                            }
 
-                            new Thread(() -> {
-                                uploadFile(sourcePath + "/" + filename, "uid="+user);
-                            }).start();
                         }
-
-                    }
-                });
+                    });
+                }
             }
         }
     }
@@ -212,6 +211,8 @@ public class EmployerSignUp extends AppCompatActivity {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
+
+                    ((Button) findViewById(R.id.empSignUp_buttonFile)).setText("File: " + filename);
 
                 } catch (Exception e) {
                     e.printStackTrace();

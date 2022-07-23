@@ -12,9 +12,11 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -47,19 +49,24 @@ public class EmployerPostedJobs extends AppCompatActivity implements NavigationV
         NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        FloatingActionButton fab = findViewById(R.id.empListJobs_fabAdd);
+
         mode = getIntent().getStringExtra("mode");
         switch(mode) {
             case "jobList":
                 getSupportActionBar().setTitle("Posted Jobs");
                 navigationView.getMenu().getItem(1).setChecked(true);
+                fab.setVisibility(View.VISIBLE);
                 break;
             case "applicantList":
                 getSupportActionBar().setTitle("Applicant List");
                 navigationView.getMenu().getItem(2).setChecked(true);
+                fab.setVisibility(View.GONE);
                 break;
             case "SOI":
                 getSupportActionBar().setTitle("Scheduled for Interview");
                 navigationView.getMenu().getItem(3).setChecked(true);
+                fab.setVisibility(View.GONE);
                 break;
         }
 
@@ -79,6 +86,12 @@ public class EmployerPostedJobs extends AppCompatActivity implements NavigationV
         if (actionBarDrawerToggle.onOptionsItemSelected(item))
             return true;
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getData();
     }
 
     @Override
@@ -104,10 +117,14 @@ public class EmployerPostedJobs extends AppCompatActivity implements NavigationV
 
                 jobPool.get().addOnCompleteListener(task1 -> {
                     if(task1.isComplete() && task1.isSuccessful()) {
-                        for (DataSnapshot data : task1.getResult().getChildren()) {
-                            jobs.get(data.getKey()).put("jobTitle", data.child("jobTitle").getValue().toString());
-                            jobs.get(data.getKey()).put("companyName", data.child("companyName").getValue().toString());
-                            jobs.get(data.getKey()).put("mode", mode);
+                        if(!jobs.isEmpty()) {
+                            for (DataSnapshot data : task1.getResult().getChildren()) {
+                                if (jobs.containsKey(data.getKey())) {
+                                    jobs.get(data.getKey()).put("jobTitle", data.child("jobTitle").getValue().toString());
+                                    jobs.get(data.getKey()).put("companyName", data.child("companyName").getValue().toString());
+                                    jobs.get(data.getKey()).put("mode", mode);
+                                }
+                            }
                         }
                         inflateData();
                     }
@@ -117,18 +134,16 @@ public class EmployerPostedJobs extends AppCompatActivity implements NavigationV
     }
 
     public void inflateData() {
+        TextView empty = findViewById(R.id.txtNoData);
         RecyclerView rv = findViewById(R.id.empListJobs_recView);
         if(!jobs.isEmpty()) {
-//            TextView empty = findViewById(R.id.txt_notifsEmpty);
-//            empty.setVisibility(View.GONE);
+            empty.setVisibility(View.GONE);
             rv.setVisibility(View.VISIBLE);
             rv.setLayoutManager(new LinearLayoutManager(this));
             AdapterJobList adapter = new AdapterJobList(this, jobs);
             rv.setAdapter(adapter);
         } else {
-//            TextView empty = findViewById(R.id.txt_notifsEmpty);
-//            empty.setVisibility(View.VISIBLE);
-
+            empty.setVisibility(View.VISIBLE);
             rv.setVisibility(View.GONE);
         }
     }

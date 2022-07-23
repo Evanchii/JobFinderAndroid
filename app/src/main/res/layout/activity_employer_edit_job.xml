@@ -18,6 +18,39 @@
             android:orientation="vertical"
             android:padding="16dp">
 
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp"
+                app:cardUseCompatPadding="true"
+                app:contentPadding="6dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/editJob_btnIcon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="openFileChooser"
+                        android:text="Job Icon"
+                        android:textAllCaps="false" />
+
+                    <ImageView
+                        android:id="@+id/editJob_imgJobIcon"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:scaleType="fitCenter"
+                        app:srcCompat="@drawable/ic_briefcase" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/editJob_decorTitle"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -64,7 +97,7 @@
             <Spinner
                 android:id="@+id/editJob_spnSpec"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:entries="@array/specialization"
                 android:paddingBottom="12dp" />
 
@@ -82,7 +115,7 @@
             <Spinner
                 android:id="@+id/editJob_spnNature"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:entries="@array/nature"
                 android:paddingBottom="12dp" />
 
@@ -98,7 +131,7 @@
                     android:id="@+id/editJob_inputVacancy"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="text" />
+                    android:inputType="number" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -114,7 +147,7 @@
                     android:id="@+id/editJob_inputSalary"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="text" />
+                    android:inputType="number" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -171,6 +204,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
+                android:onClick="postJob"
                 android:text="Save"
                 android:textAlignment="center"
                 android:textAllCaps="false" />

@@ -9,6 +9,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -62,11 +63,13 @@ public class Notification extends AppCompatActivity {
 
                 dbNotifs.get().addOnCompleteListener(task1 -> {
                     if(task1.isComplete() && task1.isComplete()) {
-                        for(DataSnapshot data : task1.getResult().getChildren()) {
-                            if(notifList.containsKey(data.getKey())) {
-                                notifList.get(data.getKey()).put("title", data.child("title").getValue().toString());
-                                notifList.get(data.getKey()).put("message", data.child("message").getValue().toString());
-                                notifList.get(data.getKey()).put("type", data.child("messageType").getValue().toString());
+                        if(!notifList.isEmpty()) {
+                            for (DataSnapshot data : task1.getResult().getChildren()) {
+                                if (notifList.containsKey(data.getKey())) {
+                                    notifList.get(data.getKey()).put("title", data.child("title").getValue().toString());
+                                    notifList.get(data.getKey()).put("message", data.child("message").getValue().toString());
+                                    notifList.get(data.getKey()).put("type", data.child("messageType").getValue().toString());
+                                }
                             }
                         }
                         inflateData();
@@ -77,18 +80,16 @@ public class Notification extends AppCompatActivity {
     }
 
     public void inflateData() {
+        TextView empty = findViewById(R.id.txtNoData);
         RecyclerView rv = findViewById(R.id.notif_rv);
         if(!notifList.isEmpty()) {
-//            TextView empty = findViewById(R.id.txt_notifsEmpty);
-//            empty.setVisibility(View.GONE);
+            empty.setVisibility(View.GONE);
             rv.setVisibility(View.VISIBLE);
             rv.setLayoutManager(new LinearLayoutManager(this));
             AdapterNotification adapter = new AdapterNotification(this, notifList);
             rv.setAdapter(adapter);
         } else {
-//            TextView empty = findViewById(R.id.txt_notifsEmpty);
-//            empty.setVisibility(View.VISIBLE);
-
+            empty.setVisibility(View.VISIBLE);
             rv.setVisibility(View.GONE);
         }
     }

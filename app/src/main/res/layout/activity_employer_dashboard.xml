@@ -35,12 +35,13 @@
                     android:layout_height="match_parent"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:onClick="postedJob"
                     app:cardCornerRadius="16dp"
                     app:cardElevation="6dp"
                     app:cardUseCompatPadding="true"
-                    app:contentPadding="16dp"
-                    android:foreground="?android:attr/selectableItemBackground"
-                    android:clickable="true">
+                    app:contentPadding="16dp">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -108,12 +109,13 @@
                     android:layout_height="match_parent"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:onClick="applicants"
                     app:cardCornerRadius="16dp"
                     app:cardElevation="6dp"
                     app:cardUseCompatPadding="true"
-                    app:contentPadding="16dp"
-                    android:foreground="?android:attr/selectableItemBackground"
-                    android:clickable="true">
+                    app:contentPadding="16dp">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -181,12 +183,13 @@
                     android:layout_height="match_parent"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:onClick="SOI"
                     app:cardCornerRadius="16dp"
                     app:cardElevation="6dp"
                     app:cardUseCompatPadding="true"
-                    app:contentPadding="16dp"
-                    android:foreground="?android:attr/selectableItemBackground"
-                    android:clickable="true">
+                    app:contentPadding="16dp">
 
                     <RelativeLayout
                         android:layout_width="match_parent"

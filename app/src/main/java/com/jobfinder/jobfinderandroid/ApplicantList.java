@@ -6,7 +6,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -46,6 +48,16 @@ public class ApplicantList extends AppCompatActivity {
         getData();
     }
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     private void getData() {
         applicants = new HashMap<>();
         dbJobs.get().addOnCompleteListener(task -> {
@@ -58,25 +70,22 @@ public class ApplicantList extends AppCompatActivity {
                     tmp.put("uid", data.getKey());
                     applicants.put(data.getKey(), tmp);
                 }
-
                 inflateData();
             }
         });
     }
 
     public void inflateData() {
+        TextView empty = findViewById(R.id.txtNoData);
         RecyclerView rv = findViewById(R.id.appList_recView);
         if(!applicants.isEmpty()) {
-//            TextView empty = findViewById(R.id.txt_notifsEmpty);
-//            empty.setVisibility(View.GONE);
+            empty.setVisibility(View.GONE);
             rv.setVisibility(View.VISIBLE);
             rv.setLayoutManager(new LinearLayoutManager(this));
             AdapterApplicantList adapter = new AdapterApplicantList(this, applicants, jobKey, mode);
             rv.setAdapter(adapter);
         } else {
-//            TextView empty = findViewById(R.id.txt_notifsEmpty);
-//            empty.setVisibility(View.VISIBLE);
-
+            empty.setVisibility(View.VISIBLE);
             rv.setVisibility(View.GONE);
         }
     }

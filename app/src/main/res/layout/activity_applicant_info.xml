@@ -213,6 +213,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/cust_button_white"
                     android:backgroundTint="@color/BlueViolet"
+                    android:onClick="viewResume"
                     android:text="View\nResume"
                     android:textAllCaps="false"
                     android:textColor="@color/white" />
@@ -225,6 +226,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/cust_button_white"
                     android:backgroundTint="@color/DarkKhaki"
+                    android:onClick="schedApp"
                     android:text="Schedule for\nInterview"
                     android:textAllCaps="false"
                     android:textColor="@color/white" />

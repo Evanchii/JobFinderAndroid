@@ -81,9 +81,10 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/jobApply_btnUpload"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="openFileChooser"
         android:text="Upload Resume"
         android:textAllCaps="false" />
 
@@ -98,6 +99,7 @@
         android:id="@+id/button4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="uploadApplication"
         android:text="Submit Application"
         android:textAllCaps="false" />
 </LinearLayout>

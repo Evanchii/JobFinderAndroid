@@ -218,12 +218,6 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <Button
-                android:id="@+id/empSignUp_buttonFile"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:onClick="openFileChooser" />
-
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
@@ -232,6 +226,14 @@
                 android:text="Insert File for Business Legitimacy:"
                 android:textAlignment="center"
                 android:textColor="@color/black" />
+
+            <Button
+                android:id="@+id/empSignUp_buttonFile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="openFileChooser"
+                android:text="Select File"
+                android:textAllCaps="true" />
 
             <TextView
                 android:id="@+id/textView9"
