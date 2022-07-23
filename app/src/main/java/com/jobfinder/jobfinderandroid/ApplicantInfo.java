@@ -90,20 +90,9 @@ public class ApplicantInfo extends AppCompatActivity {
 
 
     }
-    //ToDo Delete parent node
 
     public void _btnReject(View view){
-        dbJob.child("jobs").child(jobKey).child("applicants").child(uid).updateChildren(null).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if(task.isSuccessful()){
-                    Toast.makeText(ApplicantInfo.this,"Applicant Rejected", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(ApplicantInfo.this,EmployerDashboard.class));
-                    Log.d("JobKey","Jobkey = "+jobKey);
-                }
-                Log.d("JobKey","Not Working");
-            }
-        });
+        dbJob.setValue(null);
     }
 
     @Override
