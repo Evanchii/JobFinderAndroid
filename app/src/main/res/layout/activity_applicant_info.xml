@@ -239,6 +239,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/cust_button_white"
                     android:backgroundTint="@color/IndianRed"
+                    android:onClick="_btnReject"
                     android:text="Reject"
                     android:textAllCaps="false"
                     android:textColor="@color/white" />
