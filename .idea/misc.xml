@@ -64,16 +64,18 @@
         <entry key="..\:/Users/habbo/StudioProjects/JobFinderAndroid/app/src/main/res/drawable/ic_launcher_background.xml" value="0.146" />
         <entry key="..\:/Users/habbo/StudioProjects/JobFinderAndroid/app/src/main/res/drawable/ic_warning.xml" value="0.146" />
         <entry key="..\:/Users/habbo/StudioProjects/JobFinderAndroid/app/src/main/res/layout/activity_applicant_dashboard.xml" value="0.22146739130434784" />
-        <entry key="..\:/Users/habbo/StudioProjects/JobFinderAndroid/app/src/main/res/layout/activity_applicant_info.xml" value="0.536" />
+        <entry key="..\:/Users/habbo/StudioProjects/JobFinderAndroid/app/src/main/res/layout/activity_applicant_info.xml" value="0.264" />
         <entry key="..\:/Users/habbo/StudioProjects/JobFinderAndroid/app/src/main/res/layout/activity_applicant_job_list.xml" value="0.22146739130434784" />
         <entry key="..\:/Users/habbo/StudioProjects/JobFinderAndroid/app/src/main/res/layout/activity_applicant_list.xml" value="0.22146739130434784" />
         <entry key="..\:/Users/habbo/StudioProjects/JobFinderAndroid/app/src/main/res/layout/activity_applicant_profile.xml" value="0.22146739130434784" />
         <entry key="..\:/Users/habbo/StudioProjects/JobFinderAndroid/app/src/main/res/layout/activity_applicant_sign_up.xml" value="0.264" />
         <entry key="..\:/Users/habbo/StudioProjects/JobFinderAndroid/app/src/main/res/layout/activity_employer_dashboard.xml" value="0.18854166666666666" />
+        <entry key="..\:/Users/habbo/StudioProjects/JobFinderAndroid/app/src/main/res/layout/activity_employer_profile.xml" value="0.18342391304347827" />
         <entry key="..\:/Users/habbo/StudioProjects/JobFinderAndroid/app/src/main/res/layout/activity_employer_sign_up.xml" value="0.264" />
         <entry key="..\:/Users/habbo/StudioProjects/JobFinderAndroid/app/src/main/res/layout/activity_job_apply.xml" value="0.18854166666666666" />
         <entry key="..\:/Users/habbo/StudioProjects/JobFinderAndroid/app/src/main/res/layout/activity_job_view.xml" value="0.22146739130434784" />
         <entry key="..\:/Users/habbo/StudioProjects/JobFinderAndroid/app/src/main/res/layout/activity_notification.xml" value="0.22146739130434784" />
+        <entry key="..\:/Users/habbo/StudioProjects/JobFinderAndroid/app/src/main/res/layout/activity_schedule_applicant.xml" value="0.2" />
         <entry key="..\:/Users/habbo/StudioProjects/JobFinderAndroid/app/src/main/res/layout/header.xml" value="0.18854166666666666" />
         <entry key="..\:/Users/habbo/StudioProjects/JobFinderAndroid/app/src/main/res/layout/item_job_list.xml" value="0.18854166666666666" />
         <entry key="..\:/Users/habbo/StudioProjects/JobFinderAndroid/app/src/main/res/layout/item_notification.xml" value="0.18854166666666666" />

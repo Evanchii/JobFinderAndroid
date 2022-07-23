@@ -39,7 +39,7 @@ public class ApplicantInfo extends AppCompatActivity {
         setContentView(R.layout.activity_applicant_info);
 
         dbRef =FirebaseDatabase.getInstance();
-        dbJob = FirebaseDatabase.getInstance().getReference();
+//        dbJob = FirebaseDatabase.getInstance().getReference();
 
         mode = getIntent().getStringExtra("mode");
         jobKey = getIntent().getStringExtra("jobKey");
@@ -93,17 +93,26 @@ public class ApplicantInfo extends AppCompatActivity {
     //ToDo Delete parent node
 
     public void _btnReject(View view){
-        dbJob.child("jobs").child(jobKey).child("applicants").child(uid).updateChildren(null).addOnCompleteListener(new OnCompleteListener<Void>() {
+        dbJob.setValue(null);
+        Toast.makeText(ApplicantInfo.this,"Applicant Delete", Toast.LENGTH_SHORT);
+        startActivity(new Intent(ApplicantInfo.this,EmployerDashboard.class));
+    }
+    public void _btnAccept(View view){
+        dbRef.getReference("jobs/"+jobKey).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if(task.isSuccessful()){
-                    Toast.makeText(ApplicantInfo.this,"Applicant Rejected", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(ApplicantInfo.this,EmployerDashboard.class));
-                    Log.d("JobKey","Jobkey = "+jobKey);
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if(task.isComplete() && task.isSuccessful()){
+                    DataSnapshot snapshot = task.getResult();
+                    String value = snapshot.child("vacancy").getValue().toString();
+                    dbRef.getReference("jobs/"+jobKey).child("vacancy").setValue(Integer.parseInt(value)-1);
+                    dbJob.setValue(null);
+                    Toast.makeText(ApplicantInfo.this,"Accepted Successfully",Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(ApplicantInfo.this, EmployerDashboard.class));
                 }
-                Log.d("JobKey","Not Working");
+
             }
         });
+
     }
 
     @Override

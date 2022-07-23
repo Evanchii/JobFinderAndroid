@@ -66,6 +66,12 @@ public class ApplicantDashboard extends AppCompatActivity implements NavigationV
 //                Toast.makeText(this, "No Data Found", Toast.LENGTH_SHORT);
             }
         });
+
+
+    }
+
+    public void _viewAll(View view){
+        startActivity(new Intent(ApplicantDashboard.this, ApplicantJobList.class));
     }
 
     @Override
