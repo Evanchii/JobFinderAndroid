@@ -104,6 +104,7 @@ public class JobApply extends AppCompatActivity {
 
     public void uploadApplication(View view) {
         if(filename != null) {
+            dialog = ProgressDialog.show(JobApply.this, "", "Uploading Application...", true);
             if(checkData(fname) && checkData(lname) &&
                     checkData(contact) && checkData(email)) {
                 Timestamp timestamp = new Timestamp(System.currentTimeMillis());
@@ -113,8 +114,8 @@ public class JobApply extends AppCompatActivity {
                 dbJob.child(uid+"/applicantName").setValue(fname.getText() + " " + lname.getText());
                 dbJob.child(uid+"/appliedAt").setValue(ts);
                 dbJob.child(uid+"/status").setValue("Processing");
-                dbJob.child(uid+"/phone").setValue(contact.getText());
-                dbJob.child(uid+"/email").setValue(email.getText());
+                dbJob.child(uid+"/phone").setValue(contact.getText().toString());
+                dbJob.child(uid+"/email").setValue(email.getText().toString());
                 dbJob.child(uid+"/resume").setValue(jobKey+"-"+uid+"."+ filename.split("\\.")[filename.split("\\.").length-1]);
 
                 dbUser.child("jobsApplied/"+ts).setValue(ts);
@@ -148,7 +149,7 @@ public class JobApply extends AppCompatActivity {
     }
 
     private boolean checkData(TextInputEditText view) {
-        TextInputLayout parent = (TextInputLayout) view.getParent();
+        TextInputLayout parent = (TextInputLayout) view.getParent().getParent();
 
         if(view.getText().equals("")) {
             parent.setError("Please input data.");

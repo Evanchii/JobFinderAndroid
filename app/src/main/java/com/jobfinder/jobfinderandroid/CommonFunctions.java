@@ -7,17 +7,23 @@ import android.content.SharedPreferences;
 import android.net.wifi.WifiManager;
 import android.text.format.Formatter;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
 
 public class CommonFunctions {
-
 
     @SuppressLint("NonConstantResourceId")
     public static boolean applicantMenu(Context con, MenuItem item, String src) {
@@ -147,6 +153,27 @@ public class CommonFunctions {
         dbLogs.child("ip").setValue(ip);
         dbLogs.child("uid").setValue(uid);
         dbLogs.child("name").setValue(name);
+    }
+
+    public void fetchHamburgerDetails(NavigationView nv, String type) {
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference().child("user").child(type).child(mAuth.getUid());
+
+        View headerView = nv.getHeaderView(0);
+        TextView name = (TextView) headerView.findViewById(R.id.header_username),
+            usertype = (TextView) headerView.findViewById(R.id.header_usertype);
+
+        dbRef.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if(task.isComplete() && task.isSuccessful()) {
+                    DataSnapshot snapshot = task.getResult();
+                    String uName = String.valueOf(snapshot.child("lname").getValue()) +", "+ String.valueOf(snapshot.child("fname").getValue());
+                    name.setText(String.valueOf(uName));
+                    usertype.setText(type.substring(0, 1).toUpperCase() + type.substring(1));
+                }
+            }
+        });
     }
 
 }

@@ -50,25 +50,22 @@ public class SettingsEmail extends AppCompatActivity {
             if(!currEmail.getText().toString().trim().equals(newEmail.getText().toString().trim())){
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 AuthCredential credential = EmailAuthProvider.getCredential(currEmail.getText().toString().trim(),password.getText().toString().trim());
-                user.reauthenticate(credential).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        Log.d("Email", "User re-authenticated.");
-                        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                        user.updateEmail(newEmail.getText().toString().trim())
-                                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<Void> task) {
-                                        if (task.isSuccessful()) {
-                                            Log.d("Email", "User email address updated.");
-                                            Toast.makeText(SettingsEmail.this, "User Email Address Updated.", Toast.LENGTH_SHORT);
+                user.reauthenticate(credential).addOnCompleteListener(task -> {
+                    Log.d("Email", "User re-authenticated.");
+                    FirebaseUser user1 = FirebaseAuth.getInstance().getCurrentUser();
+                    user1.updateEmail(newEmail.getText().toString().trim())
+                            .addOnCompleteListener(task1 -> {
+                                if (task1.isSuccessful()) {
+                                    Log.d("Email", "User email address updated.");
+                                    Toast.makeText(SettingsEmail.this, "User Email Address Updated.", Toast.LENGTH_SHORT);
 
-                                            mAuth.signOut();
-                                            startActivity(new Intent(SettingsEmail.this, ApplicantSignIn.class));
-                                        }
-                                    }
-                                });
-                    }
+                                    new CommonFunctions().createLog(SettingsEmail.this, "Email Changed", mAuth.getUid() + " has changed their own email address.",
+                                            "User Management", "", mAuth.getUid());
+
+                                    mAuth.signOut();
+                                    startActivity(new Intent(SettingsEmail.this, ApplicantSignIn.class));
+                                }
+                            });
                 });
             }else {
                 Log.d("Email", "old Email and new Email cant be equal");

@@ -226,6 +226,10 @@ public class EmployerEditJob extends AppCompatActivity {
                     new Thread(() -> {
                         uploadFile(sourcePath + "/" + filename, "jobKey="+jobKey);
                     }).start();
+
+                    new CommonFunctions().createLog(view.getContext(), "Job Posted",
+                            mAuth.getUid() + " has posted/updated a job: : "+jobKey, "Job Finding",
+                            "", mAuth.getUid());
                 }
             });
         }

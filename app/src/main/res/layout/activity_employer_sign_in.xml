@@ -57,7 +57,7 @@
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="_forgotPassword"
+                android:onClick="forgotPassword"
                 android:padding="0dp"
                 android:paddingTop="0dp"
                 android:paddingBottom="0dp"

@@ -52,6 +52,7 @@ public class EmployerProfile extends AppCompatActivity implements NavigationView
         getSupportActionBar().setSubtitle("employer JobFinder");
         setContentView(R.layout.activity_employer_profile);
 
+        new CommonFunctions().fetchHamburgerDetails((NavigationView) findViewById(R.id.navigation_view), "employer");
         DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawerButton);
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.Open, R.string.Close);
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
@@ -60,8 +61,7 @@ public class EmployerProfile extends AppCompatActivity implements NavigationView
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_view);
         navigationView.setNavigationItemSelectedListener(this);
-        navigationView.getMenu().getItem(2).setChecked(true);
-
+        navigationView.getMenu().getItem(4).setChecked(true);
 
         mAuth = FirebaseAuth.getInstance();
         dbRef = FirebaseDatabase.getInstance();

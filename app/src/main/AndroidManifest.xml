@@ -17,71 +17,91 @@
         android:theme="@style/Theme.JobFinderAndroid">
         <activity
             android:name=".ScheduleApplicant"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".JobApply"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".EmployerProfile"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".ApplicantInfo"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".ApplicantList"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".EmployerEditJob"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".JobView"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".EmployerPostedJobs"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".EmployerSettings"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".EmployerDashboard"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".Notification"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".SettingsPassword"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".SettingsEmail"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".ApplicantSettings"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".ApplicantProfile"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".ApplicantJobList"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".EmployerSignIn"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".ApplicantDashboard"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".ApplicantSignUp"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".ApplicantSignIn"
-            android:exported="false" /> <!-- <activity -->
-        <!-- android:name=".EmployerSignIn" -->
-        <!-- android:exported="false" /> -->
+            android:screenOrientation="portrait"
+            android:exported="false" />
         <activity
             android:name=".EmployerSignUp"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".Splashscreen"
+            android:screenOrientation="portrait"
             android:exported="true"
             android:label="@string/title_activity_splashscreen"
             android:theme="@style/Theme.JobFinderAndroid.NoActionBar">

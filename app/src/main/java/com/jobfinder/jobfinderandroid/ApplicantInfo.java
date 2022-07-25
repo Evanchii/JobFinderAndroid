@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -28,6 +29,7 @@ public class ApplicantInfo extends AppCompatActivity {
     private TextView cardName, name, contact, gender, birthday, address, specialization;
     private DatabaseReference dbJob;
     private FirebaseDatabase dbRef;
+    private FirebaseAuth mAuth;
 
 
     @Override
@@ -40,6 +42,7 @@ public class ApplicantInfo extends AppCompatActivity {
 
         dbRef =FirebaseDatabase.getInstance();
         dbJob = FirebaseDatabase.getInstance().getReference();
+        mAuth = FirebaseAuth.getInstance();
 
         mode = getIntent().getStringExtra("mode");
         jobKey = getIntent().getStringExtra("jobKey");
@@ -93,6 +96,26 @@ public class ApplicantInfo extends AppCompatActivity {
 
     public void _btnReject(View view){
         dbJob.setValue(null);
+
+        new CommonFunctions().createNotification(uid, "applicant", "Application Rejected",
+                "Your application for " + jobKey + " has been rejected!",
+                "danger");
+
+        new CommonFunctions().createLog(view.getContext(), "Applicant Rejected",
+                mAuth.getUid() + " has rejected the application of "+uid, "Application Response",
+                "", mAuth.getUid());
+    }
+
+    public void _btnAccept(View view){
+        dbJob.setValue(null);
+
+        new CommonFunctions().createNotification(uid, "applicant", "Application Accepted!",
+                "Your application for " + jobKey + " has been accepted! \\nCongratulations!",
+                "success");
+
+        new CommonFunctions().createLog(view.getContext(), "Applicant Accepted",
+                mAuth.getUid() + " has accepted the application of "+uid, "Application Response",
+                "", mAuth.getUid());
     }
 
     @Override

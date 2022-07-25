@@ -3,6 +3,7 @@ package com.jobfinder.jobfinderandroid;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -34,14 +35,11 @@ public class ApplicantSignIn extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_applicant_sign_in);
 
         mAuth = FirebaseAuth.getInstance();
         dbRef = FirebaseDatabase.getInstance();
-
-
-
-
     }
 
     public void _loginApplicant(View view){
@@ -95,8 +93,20 @@ public class ApplicantSignIn extends AppCompatActivity {
         }
     }
 
-    public void _forgotPassword(View view){
-//        Link to Forgot Password
+    public void forgotPassword(View view) {
+        EditText reset = new EditText(view.getContext());
+        AlertDialog.Builder resetDialog = new AlertDialog.Builder(view.getContext());
+        resetDialog.setTitle("Password Reset");
+        resetDialog.setMessage("Enter your email");
+        resetDialog.setView(reset);
+
+        resetDialog.setPositiveButton("Reset", (dialog, which) -> {
+            String email = reset.getText().toString().trim();
+            mAuth.sendPasswordResetEmail(email)
+                    .addOnSuccessListener(aVoid -> Toast.makeText(ApplicantSignIn.this, "Password Reset Email sent!", Toast.LENGTH_LONG).show())
+                    .addOnFailureListener(e -> Toast.makeText(ApplicantSignIn.this, "An error has occurred!", Toast.LENGTH_LONG).show());
+        }).setNegativeButton("Cancel", (dialog, which) -> {});
+        resetDialog.create().show();
     }
 
     public void _signUpApplicant(View view){

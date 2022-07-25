@@ -27,6 +27,7 @@ public class EmployerSettings extends AppCompatActivity implements NavigationVie
         getSupportActionBar().setSubtitle("Applicant JobFinder");
         setContentView(R.layout.activity_employer_settings);
 
+        new CommonFunctions().fetchHamburgerDetails((NavigationView) findViewById(R.id.navigation_view), "employer");
         DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawerButton);
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.Open, R.string.Close);
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
@@ -35,7 +36,7 @@ public class EmployerSettings extends AppCompatActivity implements NavigationVie
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_view);
         navigationView.setNavigationItemSelectedListener(this);
-        navigationView.getMenu().getItem(3).setChecked(true);
+        navigationView.getMenu().getItem(5).setChecked(true);
     }
 
     @Override

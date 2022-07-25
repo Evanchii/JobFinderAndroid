@@ -27,6 +27,7 @@ public class ApplicantSettings extends AppCompatActivity implements NavigationVi
         getSupportActionBar().setSubtitle("Applicant JobFinder");
         setContentView(R.layout.activity_applicant_settings);
 
+        new CommonFunctions().fetchHamburgerDetails((NavigationView) findViewById(R.id.navigation_view), "applicant");
         DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawerButton);
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.Open, R.string.Close);
         drawerLayout.addDrawerListener(actionBarDrawerToggle);

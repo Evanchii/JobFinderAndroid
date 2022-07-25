@@ -67,6 +67,10 @@ public class SettingsPassword extends AppCompatActivity {
                                     mAuth.getCurrentUser().updatePassword(newPassword.getText().toString().trim());
                                     Toast.makeText(SettingsPassword.this, "Changed Password!", Toast.LENGTH_LONG).show();
 
+                                    new CommonFunctions().createLog(SettingsPassword.this, "Password Changed", mAuth.getUid() + " has changed their own password.",
+                                            "User Management", "", mAuth.getUid());
+
+                                    mAuth.signOut();
                                     startActivity(new Intent(SettingsPassword.this, ApplicantSignIn.class));
                                     finish();
                                 }

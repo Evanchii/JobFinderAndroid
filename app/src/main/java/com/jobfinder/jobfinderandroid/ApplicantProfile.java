@@ -56,6 +56,7 @@ public class ApplicantProfile extends AppCompatActivity implements NavigationVie
         getSupportActionBar().setSubtitle("Applicant JobFinder");
         setContentView(R.layout.activity_applicant_profile);
 
+        new CommonFunctions().fetchHamburgerDetails((NavigationView) findViewById(R.id.navigation_view), "applicant");
         DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawerButton);
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.Open, R.string.Close);
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
@@ -69,8 +70,6 @@ public class ApplicantProfile extends AppCompatActivity implements NavigationVie
         mAuth = FirebaseAuth.getInstance();
         dbRef = FirebaseDatabase.getInstance();
         user = mAuth.getCurrentUser().getUid();
-
-
 
         fname = (EditText) findViewById(R.id.appProfile_inputFName);
         lname = (EditText) findViewById(R.id.appProfile_inputLName);
@@ -141,6 +140,10 @@ public class ApplicantProfile extends AppCompatActivity implements NavigationVie
         dbRef.getReference().child("user").child("applicant").child(user).child("phone").setValue(phone.getText().toString());
 
         Toast.makeText(view.getContext(), "Profile Update Successfully", Toast.LENGTH_SHORT);
+
+        new CommonFunctions().createLog(view.getContext(), "Profile Updated",
+                user + " has updated their own profile.", "User Management",
+                fname.getText() + " " + lname.getText(), user);
 
     }
 

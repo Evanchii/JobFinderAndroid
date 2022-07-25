@@ -1,5 +1,6 @@
 package com.jobfinder.jobfinderandroid;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -38,6 +39,7 @@ public class EmployerSignIn extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_employer_sign_in);
 
         mAuth = FirebaseAuth.getInstance();
@@ -96,9 +98,22 @@ public class EmployerSignIn extends AppCompatActivity {
         }
     }
 
-    public void _forgotPassword(View view){
-//        Link to Forgot Password
+    public void forgotPassword(View view) {
+        EditText reset = new EditText(view.getContext());
+        AlertDialog.Builder resetDialog = new AlertDialog.Builder(view.getContext());
+        resetDialog.setTitle("Password Reset");
+        resetDialog.setMessage("Enter your email");
+        resetDialog.setView(reset);
+
+        resetDialog.setPositiveButton("Reset", (dialog, which) -> {
+            String email = reset.getText().toString().trim();
+            mAuth.sendPasswordResetEmail(email)
+                    .addOnSuccessListener(aVoid -> Toast.makeText(EmployerSignIn.this, "Password Reset Email sent!", Toast.LENGTH_LONG).show())
+                    .addOnFailureListener(e -> Toast.makeText(EmployerSignIn.this, "An error has occurred!", Toast.LENGTH_LONG).show());
+        }).setNegativeButton("Cancel", (dialog, which) -> {});
+        resetDialog.create().show();
     }
+
     public void _signUpEmployer(View view){
 //        Link to SignUp Employer
         startActivity(new Intent(EmployerSignIn.this, EmployerSignUp.class));

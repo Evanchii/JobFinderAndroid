@@ -40,6 +40,7 @@ public class EmployerPostedJobs extends AppCompatActivity implements NavigationV
         getSupportActionBar().setSubtitle("Employer JobFinder");
         setContentView(R.layout.activity_employer_posted_jobs);
 
+        new CommonFunctions().fetchHamburgerDetails((NavigationView) findViewById(R.id.navigation_view), "employer");
         DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawerButton);
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.Open, R.string.Close);
         drawerLayout.addDrawerListener(actionBarDrawerToggle);

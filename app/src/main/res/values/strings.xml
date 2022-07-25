@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">JobFinderAndroid</string>
-    <string name="title_activity_splashscreen">splashscreen</string>
+    <string name="app_name">JobFinder</string>
+    <string name="title_activity_splashscreen">JobFinder</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>

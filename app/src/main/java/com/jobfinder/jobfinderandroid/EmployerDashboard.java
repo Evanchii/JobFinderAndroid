@@ -41,6 +41,7 @@ public class EmployerDashboard extends AppCompatActivity implements NavigationVi
         getSupportActionBar().setSubtitle("Employer JobFinder");
         setContentView(R.layout.activity_employer_dashboard);
 
+        new CommonFunctions().fetchHamburgerDetails((NavigationView) findViewById(R.id.navigation_view), "employer");
         DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawerButton);
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.Open, R.string.Close);
         drawerLayout.addDrawerListener(actionBarDrawerToggle);

@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.common.internal.service.Common;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -56,7 +57,17 @@ public class ScheduleApplicant extends AppCompatActivity {
         dbref.getReference("jobs/"+jobKey+"/applicants/"+uid).child("interviewData").child("date").setValue(date.getText().toString());
         dbref.getReference("jobs/"+jobKey+"/applicants/"+uid).child("interviewData").child("link").setValue(link.getText().toString());
 
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+
+        new CommonFunctions().createNotification(uid, "applicant", "Scheduled for Interview",
+                "Your application for " + jobKey + " has been scheduled for interview! \\nGood luck!",
+                "primary");
+
+        new CommonFunctions().createLog(view.getContext(), "Scheduled for Interview",
+                mAuth.getUid() + " has scheduled an interview for "+uid, "Job Finding",
+                "", mAuth.getUid());
+
         Toast.makeText(ScheduleApplicant.this,"Schedule Set",Toast.LENGTH_SHORT).show();
-        startActivity(new Intent(ScheduleApplicant.this,EmployerDashboard.class));
+        finish();
     }
 }

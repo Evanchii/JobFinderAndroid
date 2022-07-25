@@ -246,7 +246,7 @@
         app:headerLayout="@layout/header"
         app:itemShapeFillColor="@color/navigation_item_background"
         app:itemTextColor="@color/black"
-        app:menu="@menu/applicant_hamburger_menu">
+        app:menu="@menu/employer_hamburger_menu">
 
     </com.google.android.material.navigation.NavigationView>
 

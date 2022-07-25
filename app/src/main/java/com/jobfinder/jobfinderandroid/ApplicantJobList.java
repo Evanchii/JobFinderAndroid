@@ -42,6 +42,7 @@ public class ApplicantJobList extends AppCompatActivity implements NavigationVie
 
         dbJobs = FirebaseDatabase.getInstance().getReference("jobs");
 
+        new CommonFunctions().fetchHamburgerDetails((NavigationView) findViewById(R.id.navigation_view), "applicant");
         DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawerButton);
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.Open, R.string.Close);
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
