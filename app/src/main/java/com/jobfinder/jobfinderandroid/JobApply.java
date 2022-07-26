@@ -110,6 +110,7 @@ public class JobApply extends AppCompatActivity {
                 Timestamp timestamp = new Timestamp(System.currentTimeMillis());
                 String ts = String.valueOf(timestamp.getTime());
                 String uid = mAuth.getUid();
+                dbJob = dbJob.child("applicants");
                 dbJob.child(uid+"/applicantID").setValue(uid);
                 dbJob.child(uid+"/applicantName").setValue(fname.getText() + " " + lname.getText());
                 dbJob.child(uid+"/appliedAt").setValue(ts);

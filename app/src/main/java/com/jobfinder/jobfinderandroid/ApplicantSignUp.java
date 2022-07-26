@@ -3,6 +3,7 @@ package com.jobfinder.jobfinderandroid;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -35,6 +36,7 @@ public class ApplicantSignUp extends AppCompatActivity {
     private EditText phone;
     private EditText birthday;
     private EditText address;
+    private ProgressDialog dialog = null;
 
 
 
@@ -76,11 +78,14 @@ public class ApplicantSignUp extends AppCompatActivity {
         }
         if(validate){
             if(password.getText().toString().trim().equals(conPass.getText().toString().trim())){
+
+                dialog = ProgressDialog.show(ApplicantSignUp.this, "", "Registering User...", true);
+
                 mAuth.createUserWithEmailAndPassword(email.getText().toString().trim(),password.getText().toString().trim()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            user = mAuth.getCurrentUser().getUid();
+                            user = mAuth.getUid();
                             Log.d("User ","User "+user);
                             dbRef.getReference().child("user").child("applicant").child(user).child("fname").setValue(fname.getText().toString());
                             dbRef.getReference().child("user").child("applicant").child(user).child("lname").setValue(lname.getText().toString());
@@ -89,8 +94,12 @@ public class ApplicantSignUp extends AppCompatActivity {
                             dbRef.getReference().child("user").child("applicant").child(user).child("phone").setValue(phone.getText().toString());
                             dbRef.getReference().child("user").child("applicant").child(user).child("birthday").setValue(birthday.getText().toString());
                             dbRef.getReference().child("user").child("applicant").child(user).child("address").setValue(address.getText().toString());
+                            dbRef.getReference().child("user").child("applicant").child(user).child("email").setValue(email.getText().toString());
 
                             Log.d("Employer","Sign Up");
+
+                            dialog.dismiss();
+
                             Toast.makeText(ApplicantSignUp.this,"Successfully Registered",Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(ApplicantSignUp.this,EmployerSignIn.class));
                         }

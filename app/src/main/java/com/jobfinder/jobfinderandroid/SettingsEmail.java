@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthCredential;
@@ -57,7 +58,7 @@ public class SettingsEmail extends AppCompatActivity {
                             .addOnCompleteListener(task1 -> {
                                 if (task1.isSuccessful()) {
                                     Log.d("Email", "User email address updated.");
-                                    Toast.makeText(SettingsEmail.this, "User Email Address Updated.", Toast.LENGTH_SHORT);
+                                    Toast.makeText(SettingsEmail.this, "User Email Address Updated.", Toast.LENGTH_SHORT).show();
 
                                     new CommonFunctions().createLog(SettingsEmail.this, "Email Changed", mAuth.getUid() + " has changed their own email address.",
                                             "User Management", "", mAuth.getUid());
@@ -66,14 +67,20 @@ public class SettingsEmail extends AppCompatActivity {
                                     startActivity(new Intent(SettingsEmail.this, ApplicantSignIn.class));
                                 }
                             });
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.d("Email", "old Email and new Email cant be equal");
+                        Toast.makeText(SettingsEmail.this, "There was an error with your password", Toast.LENGTH_LONG).show();
+                    }
                 });
             }else {
                 Log.d("Email", "old Email and new Email cant be equal");
-                Toast.makeText(SettingsEmail.this, "Old Email and New Email is Equal", Toast.LENGTH_SHORT);
+                Toast.makeText(SettingsEmail.this, "Old Email and New Email is Equal", Toast.LENGTH_LONG).show();
             }
         }else {
             Log.d("Email", "old Email and new Email is Required");
-            Toast.makeText(SettingsEmail.this, "Old Email and new Email is Required", Toast.LENGTH_SHORT);
+            Toast.makeText(SettingsEmail.this, "Old Email and new Email is Required", Toast.LENGTH_LONG).show();
         }
 
     }

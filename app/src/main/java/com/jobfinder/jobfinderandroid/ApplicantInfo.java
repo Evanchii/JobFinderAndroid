@@ -104,10 +104,20 @@ public class ApplicantInfo extends AppCompatActivity {
         new CommonFunctions().createLog(view.getContext(), "Applicant Rejected",
                 mAuth.getUid() + " has rejected the application of "+uid, "Application Response",
                 "", mAuth.getUid());
+
+        startActivity(new Intent(ApplicantInfo.this, EmployerDashboard.class));
+        finish();
     }
 
     public void _btnAccept(View view){
         dbJob.setValue(null);
+        dbJob = FirebaseDatabase.getInstance().getReference("jobs/"+jobKey);
+        dbJob.get().addOnCompleteListener(task -> {
+            if(task.isComplete() && task.isSuccessful()) {
+                DataSnapshot data = task.getResult();
+                dbJob.child("vacancy").setValue(Integer.parseInt(data.child("vacancy").getValue().toString()) - 1);
+            }
+        });
 
         new CommonFunctions().createNotification(uid, "applicant", "Application Accepted!",
                 "Your application for " + jobKey + " has been accepted! \\nCongratulations!",
@@ -116,6 +126,9 @@ public class ApplicantInfo extends AppCompatActivity {
         new CommonFunctions().createLog(view.getContext(), "Applicant Accepted",
                 mAuth.getUid() + " has accepted the application of "+uid, "Application Response",
                 "", mAuth.getUid());
+
+        startActivity(new Intent(ApplicantInfo.this, EmployerDashboard.class));
+        finish();
     }
 
     @Override

@@ -68,6 +68,7 @@ public class ScheduleApplicant extends AppCompatActivity {
                 "", mAuth.getUid());
 
         Toast.makeText(ScheduleApplicant.this,"Schedule Set",Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(ScheduleApplicant.this, EmployerDashboard.class));
         finish();
     }
 }

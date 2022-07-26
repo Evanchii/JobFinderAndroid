@@ -78,9 +78,11 @@ public class SettingsPassword extends AppCompatActivity {
                     );
                 }else {
                     Log.d("Password", "Old and new Password are equals");
+                    Toast.makeText(SettingsPassword.this, "You can't reuse old passwords", Toast.LENGTH_SHORT).show();
                 }
             }else{
                 Log.d("Password", "Password not Equal");
+                Toast.makeText(SettingsPassword.this, "Password not Equal", Toast.LENGTH_SHORT).show();
             }
         }
     }

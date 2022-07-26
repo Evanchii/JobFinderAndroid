@@ -55,31 +55,32 @@ public class ApplicantSignIn extends AppCompatActivity {
                     new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
-                            user = mAuth.getCurrentUser().getUid();
-                            dbRef.getReference().child("user").child("applicant").addValueEventListener(new ValueEventListener() {
-                                @Override
-                                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                    if(snapshot.hasChild(user)) {
-                                        SharedPreferences sharedpreferences = getSharedPreferences("MyPrefs", view.getContext().MODE_PRIVATE);
-                                        SharedPreferences.Editor editor = sharedpreferences.edit();
-                                        editor.putString("userType", "applicant");
-                                        editor.commit();
+                            if(task.isComplete() && task.isSuccessful()) {
+                                user = mAuth.getUid();
+                                dbRef.getReference().child("user").child("applicant").addValueEventListener(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                        if (snapshot.hasChild(user)) {
+                                            SharedPreferences sharedpreferences = getSharedPreferences("MyPrefs", view.getContext().MODE_PRIVATE);
+                                            SharedPreferences.Editor editor = sharedpreferences.edit();
+                                            editor.putString("userType", "applicant");
+                                            editor.commit();
 
-                                        String userID = mAuth.getCurrentUser().getUid();
-                                        startActivity(new Intent(ApplicantSignIn.this, ApplicantDashboard.class));
-                                    }else{
-                                        Toast.makeText(ApplicantSignIn.this,"You are not a Applicant", Toast.LENGTH_SHORT);
-                                        startActivity(new Intent(ApplicantSignIn.this, ApplicantSignIn.class));
+                                            String userID = mAuth.getCurrentUser().getUid();
+                                            startActivity(new Intent(ApplicantSignIn.this, ApplicantDashboard.class));
+                                        } else {
+                                            Toast.makeText(ApplicantSignIn.this, "You are not a Applicant", Toast.LENGTH_SHORT);
+                                            startActivity(new Intent(ApplicantSignIn.this, ApplicantSignIn.class));
+                                        }
                                     }
-                                }
 
-                                @Override
-                                public void onCancelled(@NonNull DatabaseError error) {
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
 
-                                }
-                            });
+                                    }
+                                });
 
-
+                            }
                         }
                     }
             ).addOnFailureListener(new OnFailureListener() {
