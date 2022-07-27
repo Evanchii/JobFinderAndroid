@@ -60,7 +60,7 @@ public class ScheduleApplicant extends AppCompatActivity {
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
         new CommonFunctions().createNotification(uid, "applicant", "Scheduled for Interview",
-                "Your application for " + jobKey + " has been scheduled for interview! \\nGood luck!",
+                "Your application for " + jobKey + " has been scheduled for interview! \\nGood luck!\\nMeeting Link: "+link.getText().toString(),
                 "primary");
 
         new CommonFunctions().createLog(view.getContext(), "Scheduled for Interview",
