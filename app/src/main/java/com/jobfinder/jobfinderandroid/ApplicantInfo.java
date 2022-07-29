@@ -56,10 +56,14 @@ public class ApplicantInfo extends AppCompatActivity {
         address = (TextView)findViewById(R.id.appInfo_txtAddress);
         specialization=(TextView)findViewById(R.id.appInfo_txtSpec);
 
+        dbRef.getReference().child("jobs/"+jobKey+"/applicants/"+uid).get().addOnCompleteListener(task -> {
+            if(task.isComplete() && task.isSuccessful()) {
+                resume = task.getResult().child("resume").getValue().toString();
+            }
+        });
         dbRef.getReference().child("user").child("applicant").child(uid).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                resume = snapshot.child("resume").getValue().toString();
                 cardName.setText(snapshot.child("fname").getValue().toString()+" "+ snapshot.child("lname").getValue().toString());
                 name.setText(snapshot.child("fname").getValue().toString()+" "+ snapshot.child("lname").getValue().toString());
                 contact.setText(snapshot.child("phone").getValue().toString());
@@ -75,15 +79,11 @@ public class ApplicantInfo extends AppCompatActivity {
             }
         });
 
-
-
         if(mode.equals("applicantList")) {
             ((LinearLayout) findViewById(R.id.appInfo_actionAppList)).setVisibility(View.VISIBLE);
         } else {
             ((LinearLayout) findViewById(R.id.appInfo_actionSOI)).setVisibility(View.VISIBLE);
         }
-
-
 
     }
 
