@@ -113,7 +113,7 @@ public class EmployerSignUp extends AppCompatActivity {
         description = (TextInputEditText) findViewById(R.id.empSignUp_inputDescription);
         website = (TextInputEditText) findViewById(R.id.empSignUp_inputWeb);
 
-        upLoadServerUri = "https://www.jobfinder.cf/android/upload-empVer.php";
+        upLoadServerUri = "https://www.jobfinder.gq/android/upload-empVer.php";
 
         ActivityCompat.requestPermissions(EmployerSignUp.this,
                 new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.MANAGE_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE},

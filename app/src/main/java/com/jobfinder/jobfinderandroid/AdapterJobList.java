@@ -63,7 +63,7 @@ public class AdapterJobList extends RecyclerView.Adapter<AdapterJobList.ViewHold
         viewHolder.logo.setImageResource(R.drawable.ic_briefcase);
 
         new DownloadImageTask(viewHolder.logo)
-                .execute("https://www.jobfinder.cf/uploads/jobs/"+key+".png");
+                .execute("https://www.jobfinder.gq/uploads/jobs/"+key+".png");
 
         View.OnClickListener click = null;
         switch(mData.get(key).get("mode")) {

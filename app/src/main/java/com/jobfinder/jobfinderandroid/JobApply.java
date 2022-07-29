@@ -80,7 +80,7 @@ public class JobApply extends AppCompatActivity {
         contact = findViewById(R.id.jobApply_inputContact);
         email = findViewById(R.id.jobApply_inputEmail);
 
-        upLoadServerUri = "https://www.jobfinder.cf/android/upload-resume.php";
+        upLoadServerUri = "https://www.jobfinder.gq/android/upload-resume.php";
 
         ActivityCompat.requestPermissions(JobApply.this,
                 new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.MANAGE_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE},

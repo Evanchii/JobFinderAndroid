@@ -66,7 +66,7 @@ public class JobView extends AppCompatActivity {
                 exp.setText("-Experience: " + data.child("reqExperience").getValue().toString());
 
                 new DownloadImageTask(iv)
-                        .execute("https://www.jobfinder.cf/uploads/jobs/"+jobKey+".png");
+                        .execute("https://www.jobfinder.gq/uploads/jobs/"+jobKey+".png");
 
             }
         });

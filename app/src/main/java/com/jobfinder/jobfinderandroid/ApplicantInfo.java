@@ -135,7 +135,7 @@ public class ApplicantInfo extends AppCompatActivity {
     }
 
     public void viewResume(View view) {
-        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.jobfinder.cf/uploads/resume/"+resume));
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.jobfinder.gq/uploads/resume/"+resume));
         startActivity(browserIntent);
     }
 

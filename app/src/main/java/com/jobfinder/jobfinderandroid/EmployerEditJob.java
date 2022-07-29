@@ -97,7 +97,7 @@ public class EmployerEditJob extends AppCompatActivity {
         btnIcon = findViewById(R.id.editJob_btnIcon);
         iv = findViewById(R.id.editJob_imgJobIcon);
 
-        upLoadServerUri = "https://www.jobfinder.cf/android/upload-job.php";
+        upLoadServerUri = "https://www.jobfinder.gq/android/upload-job.php";
 
         ActivityCompat.requestPermissions(EmployerEditJob.this,
                 new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.MANAGE_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE},
@@ -184,7 +184,7 @@ public class EmployerEditJob extends AppCompatActivity {
             });
 
             new DownloadImageTask(iv)
-                    .execute("https://www.jobfinder.cf/uploads/jobs/"+jobKey+".png");
+                    .execute("https://www.jobfinder.gq/uploads/jobs/"+jobKey+".png");
 
         }
     }
