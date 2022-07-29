@@ -59,6 +59,7 @@ public class ApplicantInfo extends AppCompatActivity {
         dbRef.getReference().child("user").child("applicant").child(uid).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                resume = snapshot.child("resume").getValue().toString();
                 cardName.setText(snapshot.child("fname").getValue().toString()+" "+ snapshot.child("lname").getValue().toString());
                 name.setText(snapshot.child("fname").getValue().toString()+" "+ snapshot.child("lname").getValue().toString());
                 contact.setText(snapshot.child("phone").getValue().toString());
@@ -81,14 +82,6 @@ public class ApplicantInfo extends AppCompatActivity {
         } else {
             ((LinearLayout) findViewById(R.id.appInfo_actionSOI)).setVisibility(View.VISIBLE);
         }
-
-        dbJob = FirebaseDatabase.getInstance().getReference("jobs/"+jobKey+"/applicants/"+uid);
-        dbJob.get().addOnCompleteListener(task -> {
-            if(task.isComplete() && task.isSuccessful()) {
-                DataSnapshot data = task.getResult();
-                resume = data.child("resume").getValue().toString();
-            }
-        });
 
 
 
