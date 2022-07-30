@@ -41,7 +41,7 @@ public class ApplicantInfo extends AppCompatActivity {
         setContentView(R.layout.activity_applicant_info);
 
         dbRef =FirebaseDatabase.getInstance();
-        dbJob = FirebaseDatabase.getInstance().getReference();
+        dbJob = FirebaseDatabase.getInstance().getReference("jobs/"+jobKey+"/applicants/"+uid);
         mAuth = FirebaseAuth.getInstance();
 
         mode = getIntent().getStringExtra("mode");
@@ -61,21 +61,19 @@ public class ApplicantInfo extends AppCompatActivity {
                 resume = task.getResult().child("resume").getValue().toString();
             }
         });
-        dbRef.getReference().child("user").child("applicant").child(uid).addValueEventListener(new ValueEventListener() {
+        dbRef.getReference().child("user").child("applicant").child(uid).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                cardName.setText(snapshot.child("fname").getValue().toString()+" "+ snapshot.child("lname").getValue().toString());
-                name.setText(snapshot.child("fname").getValue().toString()+" "+ snapshot.child("lname").getValue().toString());
-                contact.setText(snapshot.child("phone").getValue().toString());
-                gender.setText(snapshot.child("gender").getValue().toString());
-                birthday.setText(snapshot.child("birthday").getValue().toString());
-                address.setText(snapshot.child("address").getValue().toString());
-                specialization.setText(snapshot.child("specialization").getValue().toString());
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if(task.isComplete() && task.isSuccessful()) {
+                    DataSnapshot snapshot = task.getResult();
+                    cardName.setText(snapshot.child("fname").getValue().toString()+" "+ snapshot.child("lname").getValue().toString());
+                    name.setText(snapshot.child("fname").getValue().toString()+" "+ snapshot.child("lname").getValue().toString());
+                    contact.setText(snapshot.child("phone").getValue().toString());
+                    gender.setText(snapshot.child("gender").getValue().toString());
+                    birthday.setText(snapshot.child("birthday").getValue().toString());
+                    address.setText(snapshot.child("address").getValue().toString());
+                    specialization.setText(snapshot.child("specialization").getValue().toString());
+                }
             }
         });
 

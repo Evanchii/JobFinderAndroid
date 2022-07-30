@@ -57,7 +57,7 @@ public class EmployerSignIn extends AppCompatActivity {
                     new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
-                            if(task.isComplete()){
+                            if(task.isComplete() && task.isSuccessful()){
                                 user = mAuth.getCurrentUser().getUid();
                                 dbRef.getReference().child("user").child("employer").addValueEventListener(new ValueEventListener() {
                                     @Override
@@ -83,6 +83,8 @@ public class EmployerSignIn extends AppCompatActivity {
                                     }
                                 });
 
+                            } else {
+                                dialog.dismiss();
                             }
                         }
                     }
