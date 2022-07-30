@@ -40,13 +40,13 @@ public class ApplicantInfo extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setContentView(R.layout.activity_applicant_info);
 
-        dbRef =FirebaseDatabase.getInstance();
-        dbJob = FirebaseDatabase.getInstance().getReference("jobs/"+jobKey+"/applicants/"+uid);
-        mAuth = FirebaseAuth.getInstance();
-
         mode = getIntent().getStringExtra("mode");
         jobKey = getIntent().getStringExtra("jobKey");
         uid = getIntent().getStringExtra("uid");
+
+        dbRef =FirebaseDatabase.getInstance();
+        dbJob = FirebaseDatabase.getInstance().getReference("jobs/"+jobKey+"/applicants/"+uid);
+        mAuth = FirebaseAuth.getInstance();
 
         cardName = (TextView)findViewById(R.id.appInfo_txtFullName);
         name = (TextView)findViewById(R.id.appInfo_txtName);

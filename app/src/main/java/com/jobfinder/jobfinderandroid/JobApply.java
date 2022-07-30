@@ -110,14 +110,14 @@ public class JobApply extends AppCompatActivity {
                 Timestamp timestamp = new Timestamp(System.currentTimeMillis());
                 String ts = String.valueOf(timestamp.getTime());
                 String uid = mAuth.getUid();
-                dbJob = dbJob.child("applicants");
-                dbJob.child(uid+"/applicantID").setValue(uid);
-                dbJob.child(uid+"/applicantName").setValue(fname.getText() + " " + lname.getText());
-                dbJob.child(uid+"/appliedAt").setValue(ts);
-                dbJob.child(uid+"/status").setValue("Processing");
-                dbJob.child(uid+"/phone").setValue(contact.getText().toString());
-                dbJob.child(uid+"/email").setValue(email.getText().toString());
-                dbJob.child(uid+"/resume").setValue(jobKey+"-"+uid+"."+ filename.split("\\.")[filename.split("\\.").length-1]);
+                DatabaseReference dbJob1 = dbJob.child("applicants");
+                dbJob1.child(uid+"/applicantID").setValue(uid);
+                dbJob1.child(uid+"/applicantName").setValue(fname.getText() + " " + lname.getText());
+                dbJob1.child(uid+"/appliedAt").setValue(ts);
+                dbJob1.child(uid+"/status").setValue("Processing");
+                dbJob1.child(uid+"/phone").setValue(contact.getText().toString());
+                dbJob1.child(uid+"/email").setValue(email.getText().toString());
+                dbJob1.child(uid+"/resume").setValue(jobKey+"-"+uid+"."+ filename.split("\\.")[filename.split("\\.").length-1]);
 
                 dbUser.child("jobsApplied/"+ts).setValue(ts);
 
