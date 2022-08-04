@@ -15,6 +15,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -40,6 +42,7 @@ public class ApplicantProfile extends AppCompatActivity implements NavigationVie
     private Spinner specialization;
     private EditText address;
     private EditText phone;
+    private EditText portfolio;
     private String user;
     private FloatingActionButton btnSave;
 
@@ -78,6 +81,7 @@ public class ApplicantProfile extends AppCompatActivity implements NavigationVie
         specialization = (Spinner) findViewById(R.id.appProfile_spnSpec);
         address =(EditText) findViewById(R.id.appProfile_inputAddress);
         phone = (EditText) findViewById(R.id.appProfile_inputPhone);
+        portfolio = (EditText) findViewById(R.id.appProfile_inputPortfolio);
         btnSave =(FloatingActionButton) findViewById(R.id.floatingActionButton);
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,20 +90,15 @@ public class ApplicantProfile extends AppCompatActivity implements NavigationVie
             }
         });
 
-
-
-        dbRef.getReference().child("user").child("applicant").child(user).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-
-
+        dbRef.getReference().child("user").child("applicant").child(user).get().addOnCompleteListener(task -> {
+            if(task.isComplete() && task.isSuccessful()) {
+                DataSnapshot snapshot = task.getResult();
                 fname.setText(snapshot.child("fname").getValue().toString());
                 lname.setText(snapshot.child("lname").getValue().toString());
                 birthday.setText(snapshot.child("birthday").getValue().toString());
                 address.setText(snapshot.child("address").getValue().toString());
                 phone.setText(snapshot.child("phone").getValue().toString());
-
+                portfolio.setText(snapshot.child("portfolio").getValue().toString());
 
 //                For Gender
                 ArrayAdapter<CharSequence> adapterGender = ArrayAdapter.createFromResource(ApplicantProfile.this,R.array.gender, android.R.layout.simple_spinner_dropdown_item);
@@ -118,15 +117,8 @@ public class ApplicantProfile extends AppCompatActivity implements NavigationVie
                     int spinnerPosition = adapterSpecialization.getPosition(snapshot.child("specialization").getValue().toString());
                     specialization.setSelection(spinnerPosition);
                 }
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
             }
         });
-
     }
 
     public void _btnSave(View view){
@@ -138,6 +130,7 @@ public class ApplicantProfile extends AppCompatActivity implements NavigationVie
         dbRef.getReference().child("user").child("applicant").child(user).child("specialization").setValue(specialization.getSelectedItem().toString());
         dbRef.getReference().child("user").child("applicant").child(user).child("address").setValue(address.getText().toString());
         dbRef.getReference().child("user").child("applicant").child(user).child("phone").setValue(phone.getText().toString());
+        dbRef.getReference().child("user").child("applicant").child(user).child("portfolio").setValue(portfolio.getText().toString());
 
         Toast.makeText(view.getContext(), "Profile Update Successfully", Toast.LENGTH_SHORT);
 

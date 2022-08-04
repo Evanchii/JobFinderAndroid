@@ -194,7 +194,8 @@ public class ApplicantDashboard extends AppCompatActivity implements NavigationV
                         llRecJob.addView(parentCard);
                     }
                 } else {
-                    CardView parentCard = findViewById(R.id.appDash_sampleRecJob);
+                    CardView parentCard = (CardView) LayoutInflater.from(this)
+                            .inflate(R.layout.item_recommended_job, null);
                     LinearLayout childLL = (LinearLayout) parentCard.getChildAt(0);
                     TextView jobName = (TextView) childLL.getChildAt(0),
                             comp = (TextView) childLL.getChildAt(1),

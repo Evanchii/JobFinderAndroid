@@ -173,10 +173,31 @@
                         android:textColor="@color/black" />
 
                     <TextView
-                        android:id="@+id/appInfo_decorSpec"
+                        android:id="@+id/appInfo_decorPortfolio"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/appInfo_decorAddress"
+                        android:layout_alignBottom="@id/appInfo_txtPortfolio"
+                        android:layout_alignParentStart="true"
+                        android:text="Web Portfolio"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/appInfo_txtPortfolio"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/appInfo_txtAddress"
+                        android:layout_alignParentEnd="true"
+                        android:layout_toEndOf="@id/appInfo_decorPortfolio"
+                        android:clickable="true"
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/appInfo_decorSpec"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/appInfo_decorPortfolio"
                         android:layout_alignBottom="@id/appInfo_txtSpec"
                         android:layout_alignParentStart="true"
                         android:layout_alignParentBottom="true"
@@ -187,7 +208,7 @@
                         android:id="@+id/appInfo_txtSpec"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/appInfo_txtAddress"
+                        android:layout_below="@id/appInfo_txtPortfolio"
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentBottom="true"
                         android:layout_toEndOf="@id/appInfo_decorSpec"

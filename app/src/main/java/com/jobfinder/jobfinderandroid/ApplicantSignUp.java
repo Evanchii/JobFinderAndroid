@@ -36,6 +36,7 @@ public class ApplicantSignUp extends AppCompatActivity {
     private EditText phone;
     private EditText birthday;
     private EditText address;
+    private EditText portfolio;
     private ProgressDialog dialog = null;
 
 
@@ -61,6 +62,7 @@ public class ApplicantSignUp extends AppCompatActivity {
         specialization = (Spinner) findViewById(R.id.appSignUp_spnSpec);
         phone = (EditText) findViewById(R.id.appSignUp_inputContact);
         address = (EditText) findViewById(R.id.appSignUp_inputAddress);
+        portfolio = (EditText) findViewById(R.id.appSignUp_inputPortfolio);
 
 
     }
@@ -95,6 +97,7 @@ public class ApplicantSignUp extends AppCompatActivity {
                             dbRef.getReference().child("user").child("applicant").child(user).child("birthday").setValue(birthday.getText().toString());
                             dbRef.getReference().child("user").child("applicant").child(user).child("address").setValue(address.getText().toString());
                             dbRef.getReference().child("user").child("applicant").child(user).child("email").setValue(email.getText().toString());
+                            dbRef.getReference().child("user").child("applicant").child(user).child("portfolio").setValue(portfolio.getText().toString());
 
                             Log.d("Employer","Sign Up");
 

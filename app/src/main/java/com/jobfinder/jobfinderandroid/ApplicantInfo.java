@@ -25,8 +25,8 @@ import com.google.firebase.database.ValueEventListener;
 
 public class ApplicantInfo extends AppCompatActivity {
 
-    private String mode, jobKey, resume, uid;
-    private TextView cardName, name, contact, gender, birthday, address, specialization;
+    private String mode, jobKey, resume, uid, txtPortfolio;
+    private TextView cardName, name, contact, gender, birthday, address, specialization, portfolio;
     private DatabaseReference dbJob;
     private FirebaseDatabase dbRef;
     private FirebaseAuth mAuth;
@@ -55,6 +55,7 @@ public class ApplicantInfo extends AppCompatActivity {
         birthday = (TextView)findViewById(R.id.appInfo_txtBDay);
         address = (TextView)findViewById(R.id.appInfo_txtAddress);
         specialization=(TextView)findViewById(R.id.appInfo_txtSpec);
+        portfolio=(TextView)findViewById(R.id.appInfo_txtPortfolio);
 
         dbRef.getReference().child("jobs/"+jobKey+"/applicants/"+uid).get().addOnCompleteListener(task -> {
             if(task.isComplete() && task.isSuccessful()) {
@@ -73,6 +74,12 @@ public class ApplicantInfo extends AppCompatActivity {
                     birthday.setText(snapshot.child("birthday").getValue().toString());
                     address.setText(snapshot.child("address").getValue().toString());
                     specialization.setText(snapshot.child("specialization").getValue().toString());
+                    txtPortfolio = snapshot.child("portfolio").getValue().toString();
+                    portfolio.setText(txtPortfolio);
+                    portfolio.setOnClickListener(view -> {
+                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(txtPortfolio));
+                        startActivity(browserIntent);
+                    });
                 }
             }
         });
